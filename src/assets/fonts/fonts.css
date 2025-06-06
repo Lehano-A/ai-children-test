@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'CirceRounded';
   src:
     local('Circe Rounded'),
@@ -14,8 +14,8 @@
   src:
     local('Circe Rounded'),
     local('Circe-Rounded'),
-    url('./CirceRounded/woff2/CirceRounded-ExtraLight.woff2') format('woff2'),
-    url('./CirceRounded/woff/CirceRounded-ExtraLight.woff') format('woff');
+    url('src/assets/fonts/CirceRounded/woff2/CirceRounded-ExtraLight.woff2') format('woff2'),
+    url('src/assets/fonts/CirceRounded/woff/CirceRounded-ExtraLight.woff') format('woff');
   font-display: swap;
   font-weight: 200;
 }
@@ -25,11 +25,11 @@
   src:
     local('Circe Rounded'),
     local('Circe-Rounded'),
-    url('./CirceRounded/woff2/CirceRounded-Light.woff2') format('woff2'),
-    url('./CirceRounded/woff/CirceRounded-Light.woff') format('woff');
+    url('src/assets/fonts/CirceRounded/woff2/CirceRounded-Light.woff2') format('woff2'),
+    url('src/assets/fonts/CirceRounded/woff/CirceRounded-Light.woff') format('woff');
   font-display: swap;
   font-weight: 300;
-}
+} */
 
 @font-face {
   font-family: 'CirceRounded';
@@ -53,13 +53,13 @@
   font-weight: 500;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'CirceRounded';
   src:
     local('Circe Rounded'),
     local('Circe-Rounded'),
-    url('./CirceRounded/woff2/CirceRounded-ExtraBold.woff2') format('woff2'),
-    url('./CirceRounded/woff/CirceRounded-ExtraBold.woff') format('woff');
+    url('src/assets/fonts/CirceRounded/woff2/CirceRounded-ExtraBold.woff2') format('woff2'),
+    url('src/assets/fonts/CirceRounded/woff/CirceRounded-ExtraBold.woff') format('woff');
   font-display: swap;
   font-weight: 600;
-}
+} */
