@@ -11,7 +11,7 @@ import ArrowRightIcon from '../../../assets/icons/arrow-2-right.svg?react'
 
 import { fetchImageUpload } from '../../../redux/reducers/thunks/imageUpload.thunk'
 import { IMAGE_UPLOAD_FORM } from '../../../constants'
-import Button from '../../Button/Button'
+import Button from '../../common/Button/Button'
 import useFormValidation from '../../../hooks/useFormValidation'
 
 const Form = styled('form')<{ $isVisible: boolean }>`

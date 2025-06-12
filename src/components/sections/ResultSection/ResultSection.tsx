@@ -9,7 +9,7 @@ import { RESULT_PROCESSING } from '../../../constants'
 
 import UploadIcon from '../../../assets/icons/upload.svg?react'
 import LetterIcon from '../../../assets/icons/letter.svg?react'
-import Button from '../../Button/Button'
+import Button from '../../common/Button/Button'
 
 const Title = styled('h2')`
   line-height: 1.1;
