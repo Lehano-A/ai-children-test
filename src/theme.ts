@@ -1,53 +1,113 @@
-import type { DefaultTheme } from 'styled-components'
+export interface Palette {
+  palette: {
+    muted: string
+    muted2: string
+    default: string
+    surface1: string
+    surface3: string
+    surface5: string
+    disabled: string
+    disabledBtn: string
+    err: string
 
-export const lightTheme: DefaultTheme = {
-  colors: {
-    primary: '#0070f3',
-    secondary: '#7928ca',
-    success: '#17c964',
-    error: '#f21361',
-    warning: '#f5a623',
+    blue: {
+      50: string
+      60: string
+      70: string
+      100: string
+      110: string
+    }
 
-    background: '#ffffff',
-    cardBackground: '#f5f5f5',
-    text: '#333333',
-    textSecondary: '#666666',
-    border: '#eaeaea',
-  },
-  fonts: {
-    primary: 'CirceRounded, -apple-system, BlinkMacSystemFont, Arial, sans-serif',
-  },
-  fontSizes: {
-    small: '0.625rem',
-    medium: '1rem',
-    large: '1.25rem',
-    xlarge: '1.5rem',
-    xxlarge: '2rem',
-  },
-  spacing: {
-    small: '8px',
-    medium: '16px',
-    large: '24px',
-    xlarge: '32px',
-    xxlarge: '48px',
-  },
-  radii: {
-    small: '4px',
-    medium: '8px',
-    large: '12px',
-    circle: '50%',
-  },
-  shadows: {
-    small: '0 1px 3px rgba(0,0,0,0.12)',
-    medium: '0 4px 6px rgba(0,0,0,0.12)',
-    large: '0 10px 20px rgba(0,0,0,0.19)',
-  },
+    orange: {
+      100: string
+      200: string
+      300: string
+      400: string
+      500: string
+    }
+
+    red: {
+      40: string
+      50: string
+      110: string
+    }
+
+    violet: {
+      100: string
+      110: string
+    }
+  }
+}
+
+export interface UiSeettings {
   breakpoints: {
-    mobile: '480px',
-    tablet: '768px',
-    desktop: '1024px',
+    s: number
+    m: number
+    xl: number
+  }
+
+  radius: {
+    6: string
+    8: string
+    20: string
+    100: string
+  }
+}
+
+export const lightTheme = {
+  palette: {
+    muted: '#A0A9B8',
+    muted2: '#69758E',
+    default: '#293244',
+    surface1: '#FFFFFF',
+    surface3: '#F6F6F8',
+    surface5: '#D0D4DC',
+    disabled: 'rgba(68, 83, 113, 0.5)',
+    disabledBtn: 'rgba(68, 83, 113, 0.1)',
+    err: '#FADEE0',
+
+    blue: {
+      50: '#DAEDFD',
+      60: '#C7E4FC',
+      70: '#B5DBFB',
+      100: '#45A5F6',
+      110: '#007EE5',
+    },
+
+    orange: {
+      100: '#FFE0B2',
+      200: '#FFCC80',
+      300: '#FFB74D',
+      400: '#FFA726',
+      500: '#FF9800',
+    },
+
+    red: {
+      40: '#FDEEEF',
+      50: '#FADEE0',
+      110: '#E12828',
+    },
+
+    violet: {
+      100: '#8A6BF4',
+      110: '#6447CF',
+    },
+  },
+
+  ui: {
+    breakpoints: {
+      s: 380,
+      m: 640,
+      xl: 1200,
+    },
+
+    radius: {
+      6: '6px',
+      8: '8px',
+      20: '20px',
+      100: '100px',
+    },
   },
 }
 
-// Экспорт по умолчанию (обычно light theme)
 export default lightTheme
