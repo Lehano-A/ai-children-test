@@ -1,18 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type OtherComponents, type Forms } from './ui/ui.types'
-import { IMAGE_UPLOAD_FORM, RESULT_PROCESSING, SURVEY_FORM } from './ui/ui.constants'
-
-type StepsName = Forms | OtherComponents
-
-interface FormState {
-  currentNameForm: StepsName
-  currentStep: number
-  maxReachedStep: number
-  totalSteps: number
-
-  uploadedImages: string[]
-  taskId: string
-}
+import { type OtherComponents, type Forms } from '../ui/ui.types'
+import { IMAGE_UPLOAD_FORM, RESULT_PROCESSING, SURVEY_FORM } from '../ui/ui.constants'
+import type { FormState } from './form.types'
 
 export const sequenceComponents: { [key: number]: Forms | OtherComponents } = {
   1: IMAGE_UPLOAD_FORM,
