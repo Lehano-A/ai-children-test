@@ -1,7 +1,7 @@
 import { type RefObject } from 'react'
 import { useDispatch } from 'react-redux'
 import { validateForm } from '../redux/reducers/actions/validateForm.action'
-import type { Forms } from '../redux/reducers/slices/ui.slice'
+import type { Forms } from '../redux/reducers/slices/ui/ui.slice'
 
 function useFormValidation(formRef: RefObject<HTMLFormElement>, formName: Forms) {
   const dispatch = useDispatch()

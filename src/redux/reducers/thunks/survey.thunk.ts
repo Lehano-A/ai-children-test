@@ -1,5 +1,5 @@
 import type { Dispatch } from '@reduxjs/toolkit'
-import { SURVEY_FORM } from '../../../constants'
+import { SURVEY_FORM } from '../slices/ui/ui.constants'
 import { commonSuccessActions } from '../shared/submitHandlers'
 import { createComponentThunk } from './shared/createComponentThunk'
 

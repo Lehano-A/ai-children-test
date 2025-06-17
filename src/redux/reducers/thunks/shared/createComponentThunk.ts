@@ -1,5 +1,5 @@
 import { createAsyncThunk, type Dispatch } from '@reduxjs/toolkit'
-import { uiSlice, type Forms, type OtherComponents } from '../../slices/ui.slice'
+import { uiSlice, type Forms, type OtherComponents } from '../../slices/ui/ui.slice'
 
 export const createComponentThunk = <T, Args>(
   componentName: Forms | OtherComponents,

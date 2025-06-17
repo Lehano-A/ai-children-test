@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { type OtherComponents, type Forms } from './ui.slice'
-import { IMAGE_UPLOAD_FORM, RESULT_PROCESSING, SURVEY_FORM } from '../../../constants'
+import { type OtherComponents, type Forms } from './ui/ui.types'
+import { IMAGE_UPLOAD_FORM, RESULT_PROCESSING, SURVEY_FORM } from './ui/ui.constants'
 
 type StepsName = Forms | OtherComponents
 

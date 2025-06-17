@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { setLoading } from '../slices/ui.slice'
+import { setLoading } from '../slices/ui/ui.slice'
 import { getRandomNum } from '../../../utils/getRandomNum'
-import { RESULT_PROCESSING } from '../../../constants'
+import { RESULT_PROCESSING } from '../slices/ui/ui.constants'
 
 interface Data {
   title: string

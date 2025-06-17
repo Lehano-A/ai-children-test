@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { fetchResultProcessing } from '../thunks/resultProcessing.thunk.'
-import { RESULT_PROCESSING } from '../../../constants'
+import { RESULT_PROCESSING } from './ui/ui.constants'
 
 interface ResultProcessingState {
   dataFromApi: { title: string; text: string } | null

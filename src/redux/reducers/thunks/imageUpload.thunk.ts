@@ -1,4 +1,4 @@
-import { IMAGE_UPLOAD_FORM } from '../../../constants'
+import { IMAGE_UPLOAD_FORM } from '../slices/ui/ui.constants'
 import { commonSuccessActions } from '../shared/submitHandlers'
 import { setTaskId } from '../slices/form.slice'
 

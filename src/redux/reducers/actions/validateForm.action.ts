@@ -1,4 +1,4 @@
-import { setValid, type Forms } from '../slices/ui.slice'
+import { setValid, type Forms } from '../slices/ui/ui.slice'
 import type { RefObject } from 'react'
 
 interface ValidateForm {

@@ -1,29 +1,13 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { fetchResultProcessing } from '../thunks/resultProcessing.thunk.'
-import { IMAGE_UPLOAD_FORM, RESULT_PROCESSING, SURVEY_FORM } from '../../../constants'
+import { fetchResultProcessing } from '../../thunks/resultProcessing.thunk.'
+import { IMAGE_UPLOAD_FORM, RESULT_PROCESSING, SURVEY_FORM } from './ui.constants'
+import type { AutoDataComplete, Forms, InitialState, OtherComponents } from './ui.types'
 
 export const namesForms: {
   [key: number]: Forms
 } = {
   1: IMAGE_UPLOAD_FORM,
   2: SURVEY_FORM,
-}
-
-export type Forms = 'imageUploadForm' | 'surveyForm'
-export type OtherComponents = 'resultProcessing'
-
-type Loading = Record<Forms, boolean> & Record<OtherComponents, boolean>
-
-type Valid = Record<Forms, boolean>
-
-interface AutoDataComplete {
-  surveyForm: boolean
-}
-
-interface InitialState {
-  loading: Loading
-  valid: Valid
-  autoDataComplete: AutoDataComplete
 }
 
 const initialState: InitialState = {

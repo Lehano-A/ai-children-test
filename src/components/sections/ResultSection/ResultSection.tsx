@@ -5,7 +5,7 @@ import Loader from '../../Loader/Loader'
 import styled from 'styled-components'
 import { createPortal } from 'react-dom'
 import { fetchResultProcessing } from '../../../redux/reducers/thunks/resultProcessing.thunk.'
-import { RESULT_PROCESSING } from '../../../constants'
+import { RESULT_PROCESSING } from '../../../redux/reducers/slices/ui/ui.constants'
 
 import UploadIcon from '../../../assets/icons/upload.svg?react'
 import LetterIcon from '../../../assets/icons/letter.svg?react'

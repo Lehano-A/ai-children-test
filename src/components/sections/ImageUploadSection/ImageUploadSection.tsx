@@ -10,7 +10,7 @@ import { createPortal } from 'react-dom'
 import ArrowRightIcon from '../../../assets/icons/arrow-2-right.svg?react'
 
 import { fetchImageUpload } from '../../../redux/reducers/thunks/imageUpload.thunk'
-import { IMAGE_UPLOAD_FORM } from '../../../constants'
+import { IMAGE_UPLOAD_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
 import Button from '../../common/Button/Button'
 import useFormValidation from '../../../hooks/useFormValidation'
 
