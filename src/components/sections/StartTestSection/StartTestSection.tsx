@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Button from '../../common/Button/Button'
 import { useDispatch } from 'react-redux'
-import { runningTest } from '../../../redux/reducers/slices/test.slice'
+import { runningTest } from '../../../redux/reducers/slices/components/test/test.slice'
 
 const Section = styled('section')`
   height: 100vh;

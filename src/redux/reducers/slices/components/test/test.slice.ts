@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-interface TestState {
-  isRunningTest: boolean
-}
+import type { TestState } from './test.types'
 
 const initialState: TestState = {
   isRunningTest: false,
