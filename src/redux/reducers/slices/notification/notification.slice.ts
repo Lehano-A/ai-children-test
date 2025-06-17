@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
-interface NotificationState {
-  isOpen: boolean
-  message: string
-  status: 'success' | 'err'
-}
+import type { NotificationState } from './notification.types'
 
 const initialState: NotificationState = {
   isOpen: false,
