@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import AttentionIcon from '../../../assets/icons/attention.svg?react'
-import ImageUploadWithCaption from '../../ImageUploadWithCaption/ImageUploadWithCaption'
+import ImageUploadWithCaption from './ImageUploadWithCaption/ImageUploadWithCaption'
 
 import { useRef, type FormEvent, type RefObject } from 'react'
 import { useSelector } from 'react-redux'
