@@ -1,6 +1,6 @@
 import Chapter from './Chapter'
-import Input from '../../../common/Input/Input'
-import Fieldset from '../../../common/Fieldset/Fieldset'
+import Input from '../../../ui/Input/Input'
+import Fieldset from '../../../ui/Fieldset/Fieldset'
 
 function IntroInfo() {
   return (

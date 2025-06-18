@@ -1,4 +1,4 @@
-import Button from '../common/Button/Button'
+import Button from '../ui/Button/Button'
 import ArrowLeftIcon from '../../assets/icons/arrow-left.svg?react'
 import { useDispatch } from 'react-redux'
 import { prevStep } from '../../redux/reducers/slices/form/form.slice'

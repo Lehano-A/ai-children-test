@@ -1,5 +1,5 @@
 import Chapter from './Chapter'
-import Fieldset from '../../../common/Fieldset/Fieldset'
+import Fieldset from '../../../ui/Fieldset/Fieldset'
 
 function EmotionalSphere() {
   return (

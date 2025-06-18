@@ -17,7 +17,7 @@ import { createPortal } from 'react-dom'
 import ForwardRightIcon from '../../../assets/icons/forward-right.svg?react'
 
 import { SURVEY_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
-import Button from '../../common/Button/Button'
+import Button from '../../ui/Button/Button'
 import useFormValidation from '../../../hooks/useFormValidation'
 
 const CommonBox = styled('div')<{ $currentStep: number }>`

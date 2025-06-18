@@ -9,7 +9,7 @@ import { RESULT_PROCESSING } from '../../../redux/reducers/slices/ui/ui.constant
 
 import UploadIcon from '../../../assets/icons/upload.svg?react'
 import LetterIcon from '../../../assets/icons/letter.svg?react'
-import Button from '../../common/Button/Button'
+import Button from '../../ui/Button/Button'
 
 const Title = styled('h2')`
   line-height: 1.1;

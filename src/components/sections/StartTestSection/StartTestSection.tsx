@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Button from '../../common/Button/Button'
+import Button from '../../ui/Button/Button'
 import { useDispatch } from 'react-redux'
 import { runningTest } from '../../../redux/reducers/slices/components/test/test.slice'
 
