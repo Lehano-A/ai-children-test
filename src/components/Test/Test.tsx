@@ -3,7 +3,7 @@ import StepProgress from '../ui/StepProgress/StepProgress'
 import { useAppSelector } from '../../redux/store'
 import ImageUploadSection, { figcaptions } from '../sections/ImageUploadSection/ImageUploadSection'
 import styled from 'styled-components'
-import ButtonPrev from '../ButtonPrev/ButtonPrev'
+import ButtonPrev from '../ui/ButtonPrev/ButtonPrev'
 import SurveySection from '../sections/SurveySection/SurveySection'
 import ResultSection from '../sections/ResultSection/ResultSection'
 

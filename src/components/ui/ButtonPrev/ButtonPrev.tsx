@@ -1,7 +1,7 @@
-import Button from '../ui/Button/Button'
+import Button from '../Button/Button'
 import ArrowLeftIcon from '../../assets/icons/arrow-left.svg?react'
 import { useDispatch } from 'react-redux'
-import { prevStep } from '../../redux/reducers/slices/form/form.slice'
+import { prevStep } from '../../../redux/reducers/slices/form/form.slice'
 
 function ButtonPrev() {
   const dispatch = useDispatch()
