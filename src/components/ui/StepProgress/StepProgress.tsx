@@ -4,6 +4,11 @@ interface ProgressBoxProps {
   $totalParts: number
 }
 
+interface ProgressProps {
+  totalParts: number
+  step: number
+}
+
 const StepProgressBox = styled('div')<ProgressBoxProps>`
   display: grid;
   grid-template-columns: ${({ $totalParts }) => `repeat(${$totalParts}, 1fr)`};
@@ -16,11 +21,6 @@ const Part = styled('div')<{ $needHighlight: boolean }>`
   background-color: ${({ $needHighlight, theme }) =>
     $needHighlight ? theme.palette.blue['100'] : 'transparent'};
 `
-
-interface ProgressProps {
-  totalParts: number
-  step: number
-}
 
 function StepProgress({ totalParts, step }: ProgressProps) {
   return (
