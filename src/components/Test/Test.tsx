@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import StepProgress from '../StepProgress/StepProgress'
+import StepProgress from '../ui/StepProgress/StepProgress'
 import { useAppSelector } from '../../redux/store'
 import ImageUploadSection, { figcaptions } from '../sections/ImageUploadSection/ImageUploadSection'
 import styled from 'styled-components'

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import Loader from '../../Loader/Loader'
+import Loader from '../Loader/Loader'
 import React from 'react'
 
 const primaryStyle = css`

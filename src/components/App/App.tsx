@@ -3,7 +3,7 @@ import StartTestSection from '../sections/StartTestSection/StartTestSection'
 import type { RootState } from '../../redux/store'
 import Test from '../Test/Test'
 import styled from 'styled-components'
-import Notification from '../Notification/Notification'
+import Notification from '../ui/Notification/Notification'
 
 const Main = styled('main')`
   min-height: 100vh;

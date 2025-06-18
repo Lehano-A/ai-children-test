@@ -1,7 +1,7 @@
 import { CircularProgress } from '@mui/material'
 
 import { useTheme } from 'styled-components'
-import type { ThemeType } from '../../types/theme'
+import type { ThemeType } from '../../../types/theme'
 
 function Loader({
   color = 'surface1',

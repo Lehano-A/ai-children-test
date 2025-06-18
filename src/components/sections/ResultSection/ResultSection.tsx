@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../redux/store'
-import Loader from '../../Loader/Loader'
+import Loader from '../../ui/Loader/Loader'
 
 import styled from 'styled-components'
 import { createPortal } from 'react-dom'
