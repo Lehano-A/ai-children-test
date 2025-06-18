@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import ParentInstructions from '../../Instructions/ParentInstructions'
+import ParentInstructions from './ParentInstructions/ParentInstructions'
 import React, { useRef, type RefObject } from 'react'
 import { fillSurvey } from './utils/fillSurvey'
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome'
