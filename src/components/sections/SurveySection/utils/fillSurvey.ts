@@ -1,7 +1,7 @@
-import type { RefObject } from 'react'
 import { getRandomNum } from '../../../../utils/getRandomNum'
+import type { FormRef } from '../../../../redux/reducers/slices/form/form.types'
 
-export function fillSurvey(surveyFormRef: RefObject<HTMLFormElement>, numInput = 0) {
+export function fillSurvey(surveyFormRef: FormRef, numInput = 0) {
   let skip = 0
 
   const element = surveyFormRef.current?.elements[numInput]
@@ -11,8 +11,9 @@ export function fillSurvey(surveyFormRef: RefObject<HTMLFormElement>, numInput =
     return
   }
 
+  // проверяем, что это элемент INPUT
   if (isHTMLInputElement(element)) {
-    const inputElement = element as HTMLInputElement
+    const inputElement = element as HTMLInputElement // явно говорим, что это INPUT
 
     if (inputElement.name === 'childName') {
       inputElement.value = 'Алиса Солнышкова'
@@ -25,18 +26,20 @@ export function fillSurvey(surveyFormRef: RefObject<HTMLFormElement>, numInput =
     if (inputElement.name === 'parentName') {
       inputElement.value = 'Мария Солнышкова'
     }
+    // проверяем, что это элемент FIELDSET
   } else if (isHTMLFieldSetElement(element)) {
     const fieldsetElement = element as HTMLFieldSetElement
 
     const totalElements = fieldsetElement.elements.length
     const randomId = getRandomNum(totalElements)
 
-    const inputElement = fieldsetElement.elements[randomId] as HTMLInputElement
+    const inputElement = fieldsetElement.elements[randomId] as HTMLInputElement // явно говорим, что это FIELDSET
     inputElement.checked = true
 
     skip = totalElements
+    // проверяем, что это элемент TEXTAREA
   } else if (isHTMLTextAreaElement(element)) {
-    const textAreaElement = element as HTMLTextAreaElement
+    const textAreaElement = element as HTMLTextAreaElement // явно говорим, что это TEXTAREA
     textAreaElement.value = 'Какой-то текст'
   }
 

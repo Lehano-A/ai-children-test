@@ -1,24 +1,23 @@
 import styled from 'styled-components'
-
 import ParentInstructions from './ParentInstructions/ParentInstructions'
-import React, { useRef, type RefObject } from 'react'
-import { fillSurvey } from './utils/fillSurvey'
+import React, { useRef } from 'react'
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome'
-import { setAutoDataComplete } from '../../../redux/reducers/slices/ui/ui.slice'
-import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import EmotionalSphere from './Chapters/EmotionalSphere'
 import SocialInteraction from './Chapters/SocialInteraction'
 import SelfRegulation from './Chapters/SelfRegulation'
 import SelfConfidence from './Chapters/SelfConfidence'
 import IntroInfo from './Chapters/IntroInfo'
 import CommonQuestions from './Chapters/CommonQuestions'
-import { fetchSurvey } from '../../../redux/reducers/thunks/survey.thunk'
-import { createPortal } from 'react-dom'
 import ForwardRightIcon from '../../../assets/icons/forward-right.svg?react'
-
-import { SURVEY_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
 import Button from '../../ui/Button/Button'
 import useFormValidation from '../../../hooks/useFormValidation'
+import { fillSurvey } from './utils/fillSurvey'
+import { setAutoDataComplete } from '../../../redux/reducers/slices/ui/ui.slice'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
+import { fetchSurvey } from '../../../redux/reducers/thunks/survey.thunk'
+import { createPortal } from 'react-dom'
+import { SURVEY_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
+import type { FormRef } from '../../../redux/reducers/slices/form/form.types'
 
 const CommonBox = styled('div')<{ $currentStep: number }>`
   position: ${({ $currentStep }) => ($currentStep === 2 ? 'static' : 'absolute')};
@@ -71,7 +70,7 @@ const SurveySection = React.memo(function SurveySection({
   const { currentStep, currentNameForm, taskId } = useAppSelector((state) => state.form)
   const { loading, valid } = useAppSelector((state) => state.ui)
 
-  const validate = useFormValidation(formRef as RefObject<HTMLFormElement>, SURVEY_FORM)
+  const validate = useFormValidation(formRef as FormRef, SURVEY_FORM)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -84,7 +83,7 @@ const SurveySection = React.memo(function SurveySection({
     <CommonBox $currentStep={currentStep}>
       <ButtonFillData
         onClick={() => {
-          fillSurvey(formRef as React.RefObject<HTMLFormElement>)
+          fillSurvey(formRef as FormRef)
           dispatch(setAutoDataComplete({ formName: SURVEY_FORM, status: true }))
         }}
       >

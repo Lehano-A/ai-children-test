@@ -1,18 +1,17 @@
 import styled from 'styled-components'
 import AttentionIcon from '../../../assets/icons/attention.svg?react'
 import ImageUploadWithCaption from './ImageUploadWithCaption/ImageUploadWithCaption'
-
-import { useRef, type FormEvent, type RefObject } from 'react'
-import { useSelector } from 'react-redux'
-
-import { useAppDispatch, useAppSelector, type RootState } from '../../../redux/store'
-import { createPortal } from 'react-dom'
-import ArrowRightIcon from '../../../assets/icons/arrow-2-right.svg?react'
-
-import { fetchImageUpload } from '../../../redux/reducers/thunks/imageUpload.thunk'
-import { IMAGE_UPLOAD_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
 import Button from '../../ui/Button/Button'
 import useFormValidation from '../../../hooks/useFormValidation'
+import ArrowRightIcon from '../../../assets/icons/arrow-2-right.svg?react'
+import { useRef, type FormEvent } from 'react'
+import { useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector, type RootState } from '../../../redux/store'
+import { createPortal } from 'react-dom'
+import { fetchImageUpload } from '../../../redux/reducers/thunks/imageUpload.thunk'
+import { IMAGE_UPLOAD_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
+
+import type { FormRef } from '../../../redux/reducers/slices/form/form.types'
 
 const Form = styled('form')<{ $isVisible: boolean }>`
   width: 100%;
@@ -73,7 +72,7 @@ function ImageUploadSection({ mainControlsEl }: { mainControlsEl: HTMLDivElement
   const { currentStep, currentNameForm } = useSelector((state: RootState) => state.form)
   const { loading, valid } = useAppSelector((state) => state.ui)
 
-  const validate = useFormValidation(formRef as RefObject<HTMLFormElement>, IMAGE_UPLOAD_FORM)
+  const validate = useFormValidation(formRef as FormRef, IMAGE_UPLOAD_FORM)
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()

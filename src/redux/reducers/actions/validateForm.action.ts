@@ -1,10 +1,10 @@
 import { setValid } from '../slices/ui/ui.slice'
-import type { RefObject } from 'react'
 import type { Forms } from '../slices/ui/ui.types'
+import type { FormRef } from '../slices/form/form.types'
 
 interface ValidateForm {
   formName: Forms
-  formRef: RefObject<HTMLFormElement>
+  formRef: FormRef
 }
 
 export const validateForm = (data: ValidateForm) => {

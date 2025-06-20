@@ -1,4 +1,7 @@
+import type { RefObject } from 'react'
 import type { Forms, OtherComponents } from '../ui/ui.types'
+
+export type FormRef = RefObject<HTMLFormElement>
 
 export type StepsName = Forms | OtherComponents
 

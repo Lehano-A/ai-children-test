@@ -1,4 +1,5 @@
 type Variants = '1' | '2' | '3' | '4' | '5'
+
 export interface Survey {
   childDOB: string
   childGender: string

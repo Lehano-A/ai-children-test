@@ -1,4 +1,4 @@
-import type { Survey } from '../components/sections/SurveySection/survey.types'
+import type { Survey } from '../components/sections/SurveySection/SurveySection.types'
 
 class Api {
   baseUrl: string

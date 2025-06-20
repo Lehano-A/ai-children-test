@@ -17,12 +17,12 @@ function Notification() {
 
   return (
     <Snackbar
-      color='lime'
+      key={Math.random()}
       open={isOpen}
-      onClose={() => dispatch(closeNotification())}
+      color='lime'
       slots={{ transition: SlideTransition }}
       message={message}
-      key={Math.random()}
+      onClose={() => dispatch(closeNotification())}
       autoHideDuration={8000}
       anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
       sx={{
