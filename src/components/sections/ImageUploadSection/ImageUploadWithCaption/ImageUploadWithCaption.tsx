@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import UploadIcon from '../../assets/icons/upload.svg?react'
+import UploadIcon from '../../../../assets/icons/upload.svg?react'
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveImage } from '../../../../redux/reducers/slices/form/form.slice'

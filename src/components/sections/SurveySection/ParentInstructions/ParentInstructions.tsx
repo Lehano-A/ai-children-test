@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import ThumbUp from '../../assets/icons/thumbs-up.svg?react'
-import Flag from '../../assets/icons/flag.svg?react'
+import ThumbUp from '../../../../assets/icons/thumbs-up.svg?react'
+import Flag from '../../../../assets/icons/flag.svg?react'
 
 const CommonBox = styled('div')`
   background-color: ${({ theme }) => theme.palette.red['50']};
@@ -22,10 +22,7 @@ const Paragraph = styled('p')`
 `
 
 const svgStyle = css`
-  /* display: inline-block; */
-  flex-shrink: 0;
-  width: 32px;
-  height: 32px; /* */
+  flex-shrink: 0; /* */
 `
 
 const ThumbUpIcon = styled(ThumbUp)`
