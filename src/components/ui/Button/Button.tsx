@@ -1,13 +1,12 @@
 import Loader from '../Loader/Loader'
 import type { ButtonProps } from './Button.types'
-import { BoxButtonName, BoxLoader, Link, StyledButton } from './Button.styles'
+import { BoxButtonName, BoxLoader, StyledButton } from './Button.styles'
 
 function Button({
   icon,
   buttonName,
   handleClick,
   feature,
-  link,
   formName,
   type = 'button',
   isLoading = false,
@@ -15,6 +14,7 @@ function Button({
   variant = 'primary',
   iconPosition = 'right',
 }: ButtonProps) {
+  console.log(buttonName, isDisabled)
   return (
     <StyledButton
       onClick={handleClick}
@@ -24,15 +24,9 @@ function Button({
       type={type}
       form={formName}
     >
-      {link ? (
-        <Link href={link} target='_blank' rel='noreferrer'>
-          {buttonName} {icon}
-        </Link>
-      ) : (
-        <BoxButtonName $isLoading={isLoading} $iconPosition={iconPosition}>
-          {buttonName} {icon}
-        </BoxButtonName>
-      )}
+      <BoxButtonName $isLoading={isLoading} $iconPosition={iconPosition}>
+        {buttonName} {icon}
+      </BoxButtonName>
 
       {isLoading && (
         <BoxLoader>

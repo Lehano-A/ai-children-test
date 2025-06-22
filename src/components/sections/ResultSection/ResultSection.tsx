@@ -32,7 +32,7 @@ const DownloadButton = styled(Button)``
 
 const ShareButton = styled(Button)``
 
-function ResultSection({ mainControlsEl }: { mainControlsEl: HTMLDivElement | null }) {
+function ResultSection({ nextControlsEl }: { nextControlsEl: HTMLDivElement | null }) {
   const dispatch = useAppDispatch()
   const { taskId } = useAppSelector((state) => state.form)
   const { loading } = useAppSelector((state) => state.ui)
@@ -51,15 +51,20 @@ function ResultSection({ mainControlsEl }: { mainControlsEl: HTMLDivElement | nu
     document.body.removeChild(link)
   }
 
+  function handleLinkOpen() {
+    const link = document.createElement('a')
+    link.href = 'src/assets/testResult.pdf'
+    link.target = '_blank'
+    link.rel = 'noopener noreferrer'
+    link.click()
+  }
+
   return (
     <>
       {loading[RESULT_PROCESSING] && (
         <InProcessBox>
           <h2>Анализ в обработке...</h2>
           <Loader color='blue' shade={100} />
-          {/* <BoxLoader>
-
-        </BoxLoader>*/}
         </InProcessBox>
       )}
 
@@ -70,26 +75,26 @@ function ResultSection({ mainControlsEl }: { mainControlsEl: HTMLDivElement | nu
         </>
       )}
 
-      {mainControlsEl &&
+      {nextControlsEl &&
         createPortal(
           <>
             <DownloadButton
-              isDisabled={loading[RESULT_PROCESSING]}
               icon={<UploadIcon />}
+              isDisabled={loading[RESULT_PROCESSING]}
               buttonName='Скачать отчет PDF'
               feature={{ disabledColor: 'warning' }}
               handleClick={handleDownload}
             />
 
             <ShareButton
-              link='src/assets/testResult.pdf'
-              isDisabled={loading[RESULT_PROCESSING]}
               icon={<LetterIcon />}
+              isDisabled={loading[RESULT_PROCESSING]}
               buttonName='Поделиться результатами'
               feature={{ disabledColor: 'warning' }}
+              handleClick={handleLinkOpen}
             />
           </>,
-          mainControlsEl,
+          nextControlsEl,
         )}
     </>
   )
