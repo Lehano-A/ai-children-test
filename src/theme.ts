@@ -41,9 +41,9 @@ export interface Palette {
 
 export interface UiSeettings {
   breakpoints: {
-    xs: number
-    m: number
-    l: number
+    xs: string
+    m: string
+    l: string
   }
 
   radius: {
