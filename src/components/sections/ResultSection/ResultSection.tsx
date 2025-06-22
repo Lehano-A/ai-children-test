@@ -42,9 +42,9 @@ function ResultSection({ nextControlsEl }: { nextControlsEl: HTMLDivElement | nu
     dispatch(fetchResultProcessing(taskId))
   }, [])
 
-  const handleDownload = async () => {
+  function handleDownload() {
     const link = document.createElement('a')
-    link.href = '/src/assets/testResult.pdf'
+    link.href = '/testResult.pdf'
     link.download = 'testResult.pdf'
     document.body.appendChild(link)
     link.click()
@@ -53,7 +53,7 @@ function ResultSection({ nextControlsEl }: { nextControlsEl: HTMLDivElement | nu
 
   function handleLinkOpen() {
     const link = document.createElement('a')
-    link.href = 'src/assets/testResult.pdf'
+    link.href = '/testResult.pdf'
     link.target = '_blank'
     link.rel = 'noopener noreferrer'
     link.click()
