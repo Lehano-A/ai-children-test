@@ -83,7 +83,7 @@ function RadioLabel({
   labelWidth,
   value,
   name,
-  labelSize = 's',
+  labelSize = 'xs',
 }: {
   label: string
   value: string

@@ -12,68 +12,124 @@ const TestBox = styled('div')`
   border-radius: ${({ theme }) => theme.ui.radius['20']};
   overflow: hidden;
   padding: 0 64px 32px;
-  margin-top: 32px;
   position: relative;
+
+  @media (min-width: 296px) {
+    padding: 0 16px;
+  }
+
+  @media (min-width: 600px) {
+    padding: 0 24px;
+  }
+
+  @media (min-width: 904px) {
+    padding: 0 64px;
+  }
+`
+
+const Wrapper = styled('div')`
+  padding: 24px 0 16px;
+`
+
+const manyControlsChild = '&:has(#controlsBox > :not(:only-child))' // если внутри #controlsBox > одного дочернего элемента
+const StepsControlsBox = styled('div')`
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+  min-height: 40px;
+
+  @media (min-width: 296px) {
+    gap: 24px;
+
+    ${manyControlsChild} {
+      flex-direction: column-reverse;
+      align-items: start;
+    }
+  }
+
+  @media (min-width: 600px) {
+    ${manyControlsChild} {
+      flex-direction: row;
+      align-items: end;
+    }
+  }
 `
 
 const Step = styled('span')`
+  white-space: nowrap;
   color: ${({ theme }) => theme.palette.muted};
   font-size: 1.4rem;
   line-height: 1.25;
   font-weight: 500;
 `
 
-const StepsBox = styled('div')`
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  width: 100%;
-`
-
+const manyControls = `&:has(> :not(:only-child))` // если внутри > одного контрола
 const ControlsBox = styled('div')`
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
-`
 
-const MainControls = styled(ControlsBox)``
+  @media (min-width: 296px) {
+    ${manyControls} {
+      color: tomato;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 600px) {
+    ${manyControls} {
+      flex-direction: row-reverse;
+    }
+
+    ${manyControls} button {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 904px) {
+    ${manyControls} {
+      width: auto;
+    }
+  }
+`
 
 function Test() {
   const { currentStep, totalSteps, maxReachedStep } = useAppSelector((state) => state.form)
 
-  const mainControlsRef = useRef(null)
-  const [mainControlsEl, setMainControlsEl] = useState<HTMLDivElement | null>(null)
+  const nextControlsRef = useRef(null)
+  const [nextControlsEl, setNextControlsEl] = useState<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    if (mainControlsRef.current) {
-      setMainControlsEl(mainControlsRef.current)
+    if (nextControlsRef.current) {
+      setNextControlsEl(nextControlsRef.current)
     }
   }, [])
   return (
     <TestBox>
       <StepProgress totalParts={figcaptions.length} step={currentStep} />
 
-      {currentStep >= 1 && currentStep < 3 && (
-        <ImageUploadSection mainControlsEl={mainControlsEl} />
-      )}
+      <Wrapper>
+        {currentStep >= 1 && currentStep < 3 && (
+          <ImageUploadSection nextControlsEl={nextControlsEl} />
+        )}
 
-      {((currentStep >= 2 && currentStep < 3) || maxReachedStep === 2) && (
-        <SurveySection mainControlsEl={mainControlsEl} />
-      )}
+        {((currentStep >= 2 && currentStep < 3) || maxReachedStep === 2) && (
+          <SurveySection nextControlsEl={nextControlsEl} />
+        )}
 
-      {currentStep === 3 && <ResultSection mainControlsEl={mainControlsEl} />}
+        {currentStep === 3 && <ResultSection nextControlsEl={nextControlsEl} />}
 
-      <StepsBox>
-        <Step>
-          Шаг {currentStep}/{totalSteps}
-        </Step>
+        <StepsControlsBox>
+          <Step>
+            Шаг {currentStep}/{totalSteps}
+          </Step>
 
-        <ControlsBox>
-          {currentStep === 2 && <ButtonPrev />}
-          <MainControls ref={mainControlsRef}></MainControls>
-        </ControlsBox>
-      </StepsBox>
+          <ControlsBox id='controlsBox' ref={nextControlsRef}>
+            {currentStep === 2 && <ButtonPrev />}
+          </ControlsBox>
+        </StepsControlsBox>
+      </Wrapper>
     </TestBox>
   )
 }

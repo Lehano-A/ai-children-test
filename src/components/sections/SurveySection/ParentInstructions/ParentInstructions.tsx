@@ -13,7 +13,16 @@ const CommonBox = styled('div')`
 
 const ParagraphBox = styled('div')`
   display: flex;
-  gap: 16px;
+
+  @media (min-width: 296px) {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  @media (min-width: 904px) {
+    flex-direction: row;
+    gap: 16px;
+  }
 `
 
 const Paragraph = styled('p')`
@@ -22,7 +31,13 @@ const Paragraph = styled('p')`
 `
 
 const svgStyle = css`
-  flex-shrink: 0; /* */
+  flex-shrink: 0;
+
+  @media (min-width: 296px) {
+    width: 32px;
+    height: 32px;
+    /* */
+  }
 `
 
 const ThumbUpIcon = styled(ThumbUp)`

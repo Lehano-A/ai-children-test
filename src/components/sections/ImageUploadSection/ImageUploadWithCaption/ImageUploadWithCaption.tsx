@@ -6,8 +6,6 @@ import { saveImage } from '../../../../redux/reducers/slices/form/form.slice'
 import type { RootState } from '../../../../redux/store'
 
 const Figure = styled('figure')`
-  width: 216px;
-  height: 191px;
   display: flex;
   flex-direction: column;
 `
@@ -20,6 +18,16 @@ const UploadArea = styled('div')`
   cursor: pointer;
   background-color: ${({ theme }) => theme.palette.surface3};
   border-radius: ${({ theme }) => theme.ui.radius['8']};
+
+  @media (min-width: 296px) {
+    width: 264px;
+    height: 64px;
+  }
+
+  @media (min-width: 768px) {
+    width: 216px;
+    height: 161px;
+  }
 `
 
 const UploadIconBox = styled('div')`
@@ -31,15 +39,24 @@ const UploadIconBox = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 64px;
-  height: 64px;
+  padding: 4px;
   cursor: pointer;
   background-color: ${({ theme }) => theme.palette.blue['50']};
   border-radius: ${({ theme }) => theme.ui.radius['8']};
 
+  @media (min-width: 296px) {
+    width: 32px;
+    height: 32px;
+  }
+
+  @media (min-width: 768px) {
+    width: 64px;
+    height: 64px;
+  }
+
   & svg {
-    width: 36px;
-    height: 36px;
+    width: 100%;
+    height: 100%;
     stroke: ${({ theme }) => theme.palette.default};
   }
 `

@@ -13,7 +13,7 @@ const StepProgressBox = styled('div')<ProgressBoxProps>`
   display: grid;
   grid-template-columns: ${({ $totalParts }) => `repeat(${$totalParts}, 1fr)`};
   height: 16px;
-  margin: 0 -64px 48px;
+  margin: 0 -64px;
   background-color: ${({ theme }) => theme.palette.blue['50']};
 `
 

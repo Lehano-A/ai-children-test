@@ -96,9 +96,9 @@ export const lightTheme = {
 
   ui: {
     breakpoints: {
-      s: 380,
-      m: 640,
-      xl: 1200,
+      xs: '296px',
+      m: '600px',
+      xl: '906px',
     },
 
     radius: {

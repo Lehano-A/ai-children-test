@@ -48,12 +48,16 @@ export const styleBoxButtonName = css<StyleBoxButtonNameProps>`
   color: inherit;
   flex-direction: ${({ $iconPosition }) => ($iconPosition === 'left' ? 'row-reverse' : 'row')};
   visibility: ${({ $isLoading }) => ($isLoading ? 'hidden' : 'visible')};
+  white-space: nowrap;
 `
 
 export const StyledButton = styled('button')<{
   $variant: 'primary' | 'secondary'
   $feature?: { disabledColor: string }
 }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
   position: relative;
   border-radius: ${({ theme }) => theme.ui.radius['100']};

@@ -3,7 +3,7 @@ import Fieldset from '../../../ui/Fieldset/Fieldset'
 
 function EmotionalSphere() {
   return (
-    <Chapter title='Раздел 1. Эмоциональная сфера'>
+    <Chapter title='Раздел 1. Эмоциональная сфера' gap={{ chapter: 's' }}>
       <Fieldset legend='Ребенок часто выражает радость и удовольствие:' name='q1_1' />
 
       <Fieldset legend='Ребенок часто выражает радость и удовольствие:' name='q1_2' />

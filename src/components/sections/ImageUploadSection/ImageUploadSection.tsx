@@ -28,7 +28,13 @@ const Form = styled('form')<{ $isVisible: boolean }>`
 `
 
 const Header = styled('header')`
-  margin-bottom: 32px;
+  @media (min-width: 296px) {
+    margin-bottom: 24px;
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 32px;
+  }
 `
 
 const UploadInstructions = styled('div')`
@@ -36,12 +42,13 @@ const UploadInstructions = styled('div')`
   align-items: center;
   background-color: ${({ theme }) => theme.palette.red['40']};
   padding: 8px 12px;
-  border-radius: ${({ theme }) => theme.ui.radius['100']};
+  border-radius: ${({ theme }) => theme.ui.radius['8']};
   gap: 8px;
 
   & svg {
     width: 16px;
     height: 16px;
+    flex-shrink: 0;
   }
 `
 
@@ -58,14 +65,23 @@ const Text = styled('p')`
 
 const GroupImagesBox = styled('div')`
   display: flex;
-  gap: 64px;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 64px;
+
+  @media (min-width: 296px) {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 768px) {
+    gap: 64px;
+    margin-bottom: 64px;
+  }
 `
 
 export const figcaptions = ['Дом, дерево, человек', 'Несуществующее животное', 'Автопортрет']
 
-function ImageUploadSection({ mainControlsEl }: { mainControlsEl: HTMLDivElement | null }) {
+function ImageUploadSection({ nextControlsEl }: { nextControlsEl: HTMLDivElement | null }) {
   const dispatch = useAppDispatch()
 
   const formRef = useRef<HTMLFormElement>(null)
@@ -106,7 +122,7 @@ function ImageUploadSection({ mainControlsEl }: { mainControlsEl: HTMLDivElement
         ))}
       </GroupImagesBox>
 
-      {mainControlsEl &&
+      {nextControlsEl &&
         currentNameForm === IMAGE_UPLOAD_FORM &&
         createPortal(
           <Button
@@ -117,7 +133,7 @@ function ImageUploadSection({ mainControlsEl }: { mainControlsEl: HTMLDivElement
             type='submit'
             formName={IMAGE_UPLOAD_FORM}
           />,
-          mainControlsEl,
+          nextControlsEl,
         )}
     </Form>
   )

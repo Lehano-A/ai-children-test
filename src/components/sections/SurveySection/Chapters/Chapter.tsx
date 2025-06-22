@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const ChapterBox = styled('div')<{ $gap: string }>`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ $gap }) => $gap};
+`
+
 const Title = styled('h2')`
-  height: 22px;
-  margin-bottom: 32px;
-  letter-spaccing: 0.05px;
+  min-height: 22px;
+  letter-spacing: 0.05px;
 `
 
 const FieldsetBox = styled('div')<{ $gap: string }>`
@@ -13,27 +18,30 @@ const FieldsetBox = styled('div')<{ $gap: string }>`
   gap: ${({ $gap }) => $gap};
 `
 
-type Gaps = 's' | 'm'
+type Gaps = { chapter?: 's' | 'm'; fieldset?: 's' | 'm' }
 const gapSizes = {
-  s: '16px',
-  m: '32px',
+  chapter: { s: '24px', m: '32px' },
+  fieldset: { s: '16px', m: '32px' },
 }
 
 function Chapter({
   children,
   title,
-  gap = 's',
+  gap,
 }: {
   children: React.ReactNode[]
   title: string
   gap?: Gaps
 }) {
+  const chapterGap = gap?.chapter ?? 'm'
+  const fieldsetGap = gap?.fieldset ?? 'm'
+
   return (
-    <div>
+    <ChapterBox $gap={gapSizes.chapter[chapterGap]}>
       <Title>{title}</Title>
 
-      <FieldsetBox $gap={gapSizes[gap]}>{children}</FieldsetBox>
-    </div>
+      <FieldsetBox $gap={gapSizes.fieldset[fieldsetGap]}>{children}</FieldsetBox>
+    </ChapterBox>
   )
 }
 

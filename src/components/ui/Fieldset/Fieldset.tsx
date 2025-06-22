@@ -5,6 +5,13 @@ import React from 'react'
 type Radio = [string, string][]
 type DefaultRadioVariants = [string, string, string][]
 
+type Direction = 'row' | 'column'
+interface Breakpoints {
+  s?: Direction
+  m?: Direction
+  xl?: Direction
+}
+
 const FieldsetBox = styled('fieldset')`
   display: flex;
   border: none;
@@ -12,10 +19,22 @@ const FieldsetBox = styled('fieldset')`
   padding: 0;
 `
 
-const RadioGroupBox = styled('div')<{ $direction: 'row' | 'column' }>`
+const RadioGroupBox = styled('div')<{ $breakpoints: Breakpoints }>`
   display: flex;
-  flex-direction: ${({ $direction }) => $direction};
-  gap: 24px;
+
+  @media (min-width: 296px) {
+    flex-direction: ${({ $breakpoints }) => $breakpoints.s};
+    gap: 8px;
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: ${({ $breakpoints }) => $breakpoints.m};
+  }
+
+  @media (min-width: 904px) {
+    flex-direction: ${({ $breakpoints }) => $breakpoints.xl};
+    gap: 24px;
+  }
 `
 
 const Legend = styled('legend')`
@@ -37,12 +56,16 @@ const Fieldset = React.memo(function RadioGroup({
   name,
   radio,
   legend,
-  direction = 'row',
+  breakpoints = {
+    s: 'column',
+    m: 'row',
+    xl: 'row',
+  },
 }: {
   name: string
   legend: string
   radio?: Radio
-  direction?: 'row' | 'column'
+  breakpoints?: Breakpoints
 }) {
   function createRadio(labels: Radio | DefaultRadioVariants) {
     return labels.map(([label, value, width], id) => (
@@ -54,7 +77,7 @@ const Fieldset = React.memo(function RadioGroup({
     <FieldsetBox>
       <Legend>{legend}</Legend>
 
-      <RadioGroupBox $direction={direction}>
+      <RadioGroupBox $breakpoints={breakpoints}>
         {radio && radio.length > 0 ? createRadio(radio) : createRadio(defaultRadioVariants)}
       </RadioGroupBox>
     </FieldsetBox>

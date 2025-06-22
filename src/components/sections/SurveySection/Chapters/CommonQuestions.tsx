@@ -15,7 +15,7 @@ function CommonQuestions() {
           ['Неудовлетворительное', '2'],
           ['Очень плохое', '1'],
         ]}
-        direction='column'
+        breakpoints={{ s: 'column', m: 'column', xl: 'row' }}
       />
 
       <Input

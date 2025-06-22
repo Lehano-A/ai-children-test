@@ -4,7 +4,7 @@ import Fieldset from '../../../ui/Fieldset/Fieldset'
 
 function IntroInfo() {
   return (
-    <Chapter title='Общая информация о ребенке'>
+    <Chapter title='Общая информация о ребенке' gap={{ chapter: 's', fieldset: 's' }}>
       <Input label='Имя ребенка' name='childName' />
       <Input label='Дата рождения ребенка' name='childDOB' type='date' />
 

@@ -10,9 +10,11 @@ const Section = styled('section')`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
 `
 
 const Title = styled('h1')`
+  text-align: center;
   margin: 0 0 60px;
 `
 

@@ -26,10 +26,22 @@ const CommonBox = styled('div')<{ $currentStep: number }>`
 `
 
 const Form = styled('form')`
-  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
-  gap: 64px;
+
+  @media (min-width: 296px) {
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+
+  @media (min-width: 600px) {
+    gap: 48px;
+  }
+
+  @media (min-width: 904px) {
+    gap: 64px;
+    margin-bottom: 64px;
+  }
 `
 
 const ButtonFillData = styled('button')`
@@ -59,23 +71,39 @@ const ButtonFillData = styled('button')`
   }
 `
 
+const ChaptersBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 296px) {
+    gap: 64px;
+  }
+
+  @media (min-width: 600px) {
+    gap: 48px;
+  }
+
+  @media (min-width: 904px) {
+    gap: 64px;
+  }
+`
+
 const SurveySection = React.memo(function SurveySection({
-  mainControlsEl,
+  nextControlsEl,
 }: {
-  mainControlsEl: HTMLDivElement | null
+  nextControlsEl: HTMLDivElement | null
 }) {
   const dispatch = useAppDispatch()
   const formRef = useRef<HTMLFormElement>(null)
 
-  const { currentStep, currentNameForm, taskId } = useAppSelector((state) => state.form)
   const { loading, valid } = useAppSelector((state) => state.ui)
+  const { currentStep, currentNameForm, taskId } = useAppSelector((state) => state.form)
 
   const validate = useFormValidation(formRef as FormRef, SURVEY_FORM)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.currentTarget))
-    console.log(data)
 
     dispatch(fetchSurvey({ task_id: taskId, survey: data }))
   }
@@ -93,16 +121,19 @@ const SurveySection = React.memo(function SurveySection({
       <Form ref={formRef} id={SURVEY_FORM} onSubmit={handleSubmit} onInput={validate}>
         <IntroInfo />
         <ParentInstructions />
-        <EmotionalSphere />
-        <SocialInteraction />
 
-        <SelfRegulation />
+        <ChaptersBox>
+          <EmotionalSphere />
+          <SocialInteraction />
 
-        <SelfConfidence />
+          <SelfRegulation />
 
-        <CommonQuestions />
+          <SelfConfidence />
 
-        {mainControlsEl &&
+          <CommonQuestions />
+        </ChaptersBox>
+
+        {nextControlsEl &&
           currentNameForm === SURVEY_FORM &&
           createPortal(
             <Button
@@ -113,7 +144,7 @@ const SurveySection = React.memo(function SurveySection({
               type='submit'
               formName={SURVEY_FORM}
             />,
-            mainControlsEl,
+            nextControlsEl,
           )}
       </Form>
     </CommonBox>
