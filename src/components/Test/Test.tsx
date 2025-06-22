@@ -14,15 +14,15 @@ const TestBox = styled('div')`
   padding: 0 64px 32px;
   position: relative;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     padding: 0 16px;
   }
 
-  @media (min-width: 600px) {
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
     padding: 0 24px;
   }
 
-  @media (min-width: 904px) {
+  @media (${({ theme }) => theme.ui.breakpoints.l}) {
     padding: 0 64px;
   }
 `
@@ -39,7 +39,7 @@ const StepsControlsBox = styled('div')`
   width: 100%;
   min-height: 40px;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     gap: 24px;
 
     ${manyControlsChild} {
@@ -48,7 +48,7 @@ const StepsControlsBox = styled('div')`
     }
   }
 
-  @media (min-width: 600px) {
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
     ${manyControlsChild} {
       flex-direction: row;
       align-items: end;
@@ -69,7 +69,7 @@ const ControlsBox = styled('div')`
   display: flex;
   gap: 8px;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     ${manyControls} {
       color: tomato;
       flex-direction: column;
@@ -77,7 +77,7 @@ const ControlsBox = styled('div')`
     }
   }
 
-  @media (min-width: 600px) {
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
     ${manyControls} {
       flex-direction: row-reverse;
     }
@@ -87,7 +87,7 @@ const ControlsBox = styled('div')`
     }
   }
 
-  @media (min-width: 904px) {
+  @media (${({ theme }) => theme.ui.breakpoints.l}) {
     ${manyControls} {
       width: auto;
     }

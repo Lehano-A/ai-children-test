@@ -29,16 +29,16 @@ const Form = styled('form')`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     gap: 32px;
     margin-bottom: 48px;
   }
 
-  @media (min-width: 600px) {
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
     gap: 48px;
   }
 
-  @media (min-width: 904px) {
+  @media (${({ theme }) => theme.ui.breakpoints.l}) {
     gap: 64px;
     margin-bottom: 64px;
   }
@@ -75,15 +75,15 @@ const ChaptersBox = styled('div')`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     gap: 64px;
   }
 
-  @media (min-width: 600px) {
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
     gap: 48px;
   }
 
-  @media (min-width: 904px) {
+  @media (${({ theme }) => theme.ui.breakpoints.l}) {
     gap: 64px;
   }
 `

@@ -19,7 +19,7 @@ const UploadArea = styled('div')`
   background-color: ${({ theme }) => theme.palette.surface3};
   border-radius: ${({ theme }) => theme.ui.radius['8']};
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     width: 264px;
     height: 64px;
   }
@@ -44,7 +44,7 @@ const UploadIconBox = styled('div')`
   background-color: ${({ theme }) => theme.palette.blue['50']};
   border-radius: ${({ theme }) => theme.ui.radius['8']};
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     width: 32px;
     height: 32px;
   }

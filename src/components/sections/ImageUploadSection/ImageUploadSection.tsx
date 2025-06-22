@@ -28,7 +28,7 @@ const Form = styled('form')<{ $isVisible: boolean }>`
 `
 
 const Header = styled('header')`
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     margin-bottom: 24px;
   }
 
@@ -68,7 +68,7 @@ const GroupImagesBox = styled('div')`
   justify-content: center;
   flex-wrap: wrap;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     gap: 16px;
     margin-bottom: 32px;
   }

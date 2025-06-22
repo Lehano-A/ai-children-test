@@ -22,16 +22,16 @@ const FieldsetBox = styled('fieldset')`
 const RadioGroupBox = styled('div')<{ $breakpoints: Breakpoints }>`
   display: flex;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     flex-direction: ${({ $breakpoints }) => $breakpoints.s};
     gap: 8px;
   }
 
-  @media (min-width: 600px) {
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
     flex-direction: ${({ $breakpoints }) => $breakpoints.m};
   }
 
-  @media (min-width: 904px) {
+  @media (${({ theme }) => theme.ui.breakpoints.l}) {
     flex-direction: ${({ $breakpoints }) => $breakpoints.xl};
     gap: 24px;
   }

@@ -41,9 +41,9 @@ export interface Palette {
 
 export interface UiSeettings {
   breakpoints: {
-    s: number
+    xs: number
     m: number
-    xl: number
+    l: number
   }
 
   radius: {
@@ -96,9 +96,9 @@ export const lightTheme = {
 
   ui: {
     breakpoints: {
-      xs: '296px',
-      m: '600px',
-      xl: '906px',
+      xs: 'min-width: 296px',
+      m: 'min-width: 600px',
+      l: 'min-width: 906px',
     },
 
     radius: {

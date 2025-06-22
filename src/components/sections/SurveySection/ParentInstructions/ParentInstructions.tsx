@@ -14,12 +14,12 @@ const CommonBox = styled('div')`
 const ParagraphBox = styled('div')`
   display: flex;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     flex-direction: column;
     gap: 4px;
   }
 
-  @media (min-width: 904px) {
+  @media (${({ theme }) => theme.ui.breakpoints.l}) {
     flex-direction: row;
     gap: 16px;
   }
@@ -33,7 +33,7 @@ const Paragraph = styled('p')`
 const svgStyle = css`
   flex-shrink: 0;
 
-  @media (min-width: 296px) {
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     width: 32px;
     height: 32px;
     /* */

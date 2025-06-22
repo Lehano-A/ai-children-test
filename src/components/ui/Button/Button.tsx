@@ -14,7 +14,6 @@ function Button({
   variant = 'primary',
   iconPosition = 'right',
 }: ButtonProps) {
-  console.log(buttonName, isDisabled)
   return (
     <StyledButton
       onClick={handleClick}
