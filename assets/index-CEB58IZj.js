@@ -761,6 +761,7 @@ export default theme;`}function fm(t={},...r){const{breakpoints:e,mixins:n={},sp
  :root {
     display: flex;
     justify-content: center;
+    height: 100%;
     font-size: 10px;
   }
 
@@ -775,7 +776,6 @@ export default theme;`}function fm(t={},...r){const{breakpoints:e,mixins:n={},sp
     font-weight: 400;
     max-width: 1200px;
     width: 100%;
-    height: 100vh;
   }
 
   #root {
