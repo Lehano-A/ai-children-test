@@ -339,7 +339,6 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
   cursor: pointer;
   width: 1px;
   height: 1px;
-  visibility: 0;
 `,Xk=ue("img")`
   width: 100%;
   height: 100%;
