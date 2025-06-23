@@ -59,7 +59,6 @@ const Button = styled('button')`
   justify-content: center;
   align-items: center;
 `
-
 const ButtonPrev = styled(Button)``
 const ButtonNext = styled(Button)``
 
@@ -69,12 +68,13 @@ function CustomDatePicker({ id, name }: { id: string; name: string }) {
   return (
     <DatePicker
       required
-      name={name}
       id={id}
-      placeholderText='28.07.1986'
-      dateFormat='dd.MM.yyyy'
+      name={name}
       locale={ru}
       selected={selectedDate}
+      dateFormat='dd.MM.yyyy'
+      popperPlacement='bottom-end'
+      placeholderText='28.07.1986'
       onChange={(date) => setSelectedDate(date)}
       customInput={<IMaskInput mask='00.00.0000' />}
       onKeyDown={(e) => {
@@ -93,10 +93,10 @@ function CustomDatePicker({ id, name }: { id: string; name: string }) {
 
         const monthName = monthFormatter.format(monthDate)
         const year = monthDate.getFullYear()
-        console.log('monthDate', monthName, year)
+
         return (
           <HeaderCalendar>
-            <ButtonPrev onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+            <ButtonPrev onClick={decreaseMonth} disabled={prevMonthButtonDisabled} type='button'>
               <ArrowLeftIcon />
             </ButtonPrev>
 
@@ -105,7 +105,7 @@ function CustomDatePicker({ id, name }: { id: string; name: string }) {
               <Year>{year}</Year>
             </MothYearBox>
 
-            <ButtonNext onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+            <ButtonNext onClick={increaseMonth} disabled={nextMonthButtonDisabled} type='button'>
               <ArrowRightIcon />
             </ButtonNext>
           </HeaderCalendar>
