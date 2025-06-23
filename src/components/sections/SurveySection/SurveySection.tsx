@@ -46,8 +46,9 @@ const Form = styled('form')`
 
 const ButtonFillData = styled('button')`
   position: fixed;
+  z-index: 100000;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
