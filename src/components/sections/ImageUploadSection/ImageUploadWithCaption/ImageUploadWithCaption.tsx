@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 import UploadIcon from '../../../../assets/icons/upload.svg?react'
-import { useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useAppDispatch, type RootState } from '../../../../redux/store'
 import { saveImage } from '../../../../redux/reducers/slices/form/form.slice'
-import type { RootState } from '../../../../redux/store'
 
 const Figure = styled('figure')`
   display: flex;
@@ -43,6 +42,7 @@ const UploadIconBox = styled('div')`
   cursor: pointer;
   background-color: ${({ theme }) => theme.palette.blue['50']};
   border-radius: ${({ theme }) => theme.ui.radius['8']};
+  pointer-events: none;
 
   @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     width: 32px;
@@ -73,8 +73,8 @@ const InputUpload = styled('input')`
   position: absolute;
   top: 0;
   cursor: pointer;
-  width: 1px;
-  height: 1px;
+  width: 100%;
+  height: 100%;
   opacity: 0;
 `
 
@@ -91,14 +91,8 @@ interface ImageUploadWithCaptionProps {
 }
 
 function ImageUploadWithCaption({ figcaption, id }: ImageUploadWithCaptionProps) {
-  const dispatch = useDispatch()
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
+  const dispatch = useAppDispatch()
   const { uploadedImages } = useSelector((state: RootState) => state.form)
-
-  function handleClick() {
-    fileInputRef.current?.click()
-  }
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
@@ -116,7 +110,7 @@ function ImageUploadWithCaption({ figcaption, id }: ImageUploadWithCaptionProps)
 
   return (
     <Figure>
-      <UploadArea onClick={handleClick}>
+      <UploadArea>
         <UploadIconBox>
           <UploadIcon />
         </UploadIconBox>
@@ -126,9 +120,8 @@ function ImageUploadWithCaption({ figcaption, id }: ImageUploadWithCaptionProps)
         <InputUpload
           type='file'
           accept='image/*,.pdf'
-          ref={fileInputRef}
-          onChange={handleFileChange}
           name={`image${id + 1}`}
+          onChange={handleFileChange}
           required
         />
       </UploadArea>
