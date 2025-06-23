@@ -107,14 +107,16 @@ const SurveySection = React.memo(function SurveySection({
 
     dispatch(fetchSurvey({ task_id: taskId, survey: data }))
   }
+
+  function handleFillData() {
+    fillSurvey(formRef as FormRef)
+    dispatch(setAutoDataComplete({ formName: SURVEY_FORM, status: true }))
+    nextControlsEl?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <CommonBox $currentStep={currentStep}>
-      <ButtonFillData
-        onClick={() => {
-          fillSurvey(formRef as FormRef)
-          dispatch(setAutoDataComplete({ formName: SURVEY_FORM, status: true }))
-        }}
-      >
+      <ButtonFillData onClick={handleFillData}>
         <AutoAwesomeIcon />
       </ButtonFillData>
 
