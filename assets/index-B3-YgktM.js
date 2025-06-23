@@ -775,7 +775,7 @@ export default theme;`}function fm(t={},...r){const{breakpoints:e,mixins:n={},sp
     font-weight: 400;
     max-width: 1200px;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
   }
 
   #root {
