@@ -12,7 +12,7 @@
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write .",
     "deploy": "gh-pages -d dist --cname aitest.lehano.ru",
-    "budest": "npm run build && npm run deploy && npm start"
+    "budest": "npm run build && npm run deploy && npm run dev"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
