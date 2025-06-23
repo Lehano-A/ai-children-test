@@ -79,7 +79,7 @@ const ControlsBox = styled('div')`
 
   @media (${({ theme }) => theme.ui.breakpoints.m}) {
     ${manyControls} {
-      flex-direction: row-reverse;
+      flex-direction: row;
     }
 
     ${manyControls} button {
