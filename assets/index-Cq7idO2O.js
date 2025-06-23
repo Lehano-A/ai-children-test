@@ -625,8 +625,9 @@ export default theme;`}function fm(t={},...r){const{breakpoints:e,mixins:n={},sp
   }
 `,kO=ue("button")`
   position: fixed;
+  z-index: 100000;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
