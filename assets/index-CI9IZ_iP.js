@@ -287,6 +287,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
   cursor: pointer;
   background-color: ${({theme:t})=>t.palette.surface3};
   border-radius: ${({theme:t})=>t.ui.radius[8]};
+  // pointer-events: none;
 
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     width: 264px;
@@ -337,14 +338,17 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
   position: absolute;
   top: 0;
   cursor: pointer;
-  width: 1px;
-  height: 1px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  // width: 1px;
+  // height: 1px;
 `,Xk=ue("img")`
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: ${({theme:t})=>t.ui.radius[8]};
-`;function Wk({figcaption:t,id:r}){const e=O.useRef(null),{uploadedImages:n}=Cl(s=>s.form);return N.jsxs($k,{children:[N.jsxs(Ik,{children:[N.jsx(qk,{children:N.jsx(o3,{})}),n[r]&&N.jsx(Xk,{src:n[r]}),N.jsx(Qk,{type:"file",accept:"image/*,.pdf",ref:e,name:`image${r+1}`,required:!0})]}),N.jsx(Gk,{children:t})]})}const Kk=t=>{const{formName:r,formRef:e}=t;return Pk({formName:r,status:e.current.checkValidity()})};function l3(t,r){const e=xl();return()=>{t.current&&e(Kk({formName:r,formRef:t}))}}const Zk=t=>O.createElement("svg",{width:"1em",height:"1em",viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...t},O.createElement("path",{d:"M19 12L5 12M19 12L14 17M19 12L14 7",strokeWidth:1.5,strokeLinecap:"round",strokeLinejoin:"round"})),u3=t=>{t(kk())},c3=(t,r,e)=>t3(`${t}/fetch`,async(n,{dispatch:s})=>{s(Gc.actions.setLoading({componentName:t,status:!0}));try{const l=await r(n);return e(l,s),l}finally{s(Gc.actions.setLoading({componentName:t,status:!1}))}}),Jk=c3(sr,t=>new Promise(r=>setTimeout(()=>r({task_id:"pbvg1de-zvd4fk-34r23s-ch37ds"}),1500)),(t,r)=>{u3(r),r(Mk(t.task_id))}),e9=ue("form")`
+`;function Wk({figcaption:t,id:r}){const{uploadedImages:e}=Cl(n=>n.form);return N.jsxs($k,{children:[N.jsxs(Ik,{children:[N.jsx(qk,{children:N.jsx(o3,{})}),e[r]&&N.jsx(Xk,{src:e[r]}),N.jsx(Qk,{type:"file",accept:"image/*,.pdf",name:`image${r+1}`,required:!0})]}),N.jsx(Gk,{children:t})]})}const Kk=t=>{const{formName:r,formRef:e}=t;return Pk({formName:r,status:e.current.checkValidity()})};function l3(t,r){const e=xl();return()=>{t.current&&e(Kk({formName:r,formRef:t}))}}const Zk=t=>O.createElement("svg",{width:"1em",height:"1em",viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...t},O.createElement("path",{d:"M19 12L5 12M19 12L14 17M19 12L14 7",strokeWidth:1.5,strokeLinecap:"round",strokeLinejoin:"round"})),u3=t=>{t(kk())},c3=(t,r,e)=>t3(`${t}/fetch`,async(n,{dispatch:s})=>{s(Gc.actions.setLoading({componentName:t,status:!0}));try{const l=await r(n);return e(l,s),l}finally{s(Gc.actions.setLoading({componentName:t,status:!1}))}}),Jk=c3(sr,t=>new Promise(r=>setTimeout(()=>r({task_id:"pbvg1de-zvd4fk-34r23s-ch37ds"}),1500)),(t,r)=>{u3(r),r(Mk(t.task_id))}),e9=ue("form")`
   width: 100%;
   display: flex;
   height: min-content;
