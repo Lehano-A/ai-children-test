@@ -287,7 +287,6 @@ export default theme;`}function fm(t={},...r){const{breakpoints:e,mixins:n={},sp
   cursor: pointer;
   background-color: ${({theme:t})=>t.palette.surface3};
   border-radius: ${({theme:t})=>t.ui.radius[8]};
-  // pointer-events: none;
 
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     width: 264px;
@@ -341,8 +340,6 @@ export default theme;`}function fm(t={},...r){const{breakpoints:e,mixins:n={},sp
   width: 100%;
   height: 100%;
   opacity: 0;
-  // width: 1px;
-  // height: 1px;
 `,Wk=ue("img")`
   width: 100%;
   height: 100%;
