@@ -752,7 +752,6 @@ export default theme;`}function fm(t={},...r){const{breakpoints:e,mixins:n={},sp
     }
   }
 `;function VO(){const{currentStep:t,totalSteps:r,maxReachedStep:e}=pi(c=>c.form),n=O.useRef(null),[s,l]=O.useState(null);return O.useEffect(()=>{n.current&&l(n.current)},[]),N.jsxs(FO,{children:[N.jsx(Dk,{totalParts:f3.length,step:t}),N.jsxs(YO,{children:[t>=1&&t<3&&N.jsx(o9,{nextControlsEl:s}),(t>=2&&t<3||e===2)&&N.jsx(MO,{nextControlsEl:s}),t===3&&N.jsx(PO,{nextControlsEl:s}),N.jsxs(zO,{children:[N.jsxs(jO,{children:["Шаг ",t,"/",r]}),N.jsx(HO,{id:"controlsBox",ref:n,children:t===2&&N.jsx(u9,{})})]})]})]})}function UO(t){return N.jsx(u6,{...t,direction:"down"})}function $O(){const{isOpen:t,message:r,status:e}=Cl(l=>l.notification),n=xl(),s=Um();return N.jsx(w6,{open:t,color:"lime",slots:{transition:UO},message:r,onClose:()=>n(Rk()),autoHideDuration:8e3,anchorOrigin:{horizontal:"right",vertical:"top"},sx:{".MuiSnackbarContent-message":{display:"flex",flexDirection:"column"},".MuiPaper-root":{fontFamily:"inherit",backgroundColor:s.palette[e]}}},Math.random())}const IO=ue("main")`
-  min-height: 100vh;
   max-width: 904px;
   width: 100%;
   display: flex;
@@ -776,6 +775,12 @@ export default theme;`}function fm(t={},...r){const{breakpoints:e,mixins:n={},sp
     font-weight: 400;
     max-width: 1200px;
     width: 100%;
+    min-height: 100vh;
+  }
+
+  #root {
+    height: 100%;
+    display: flex;
   }
 
   p {
