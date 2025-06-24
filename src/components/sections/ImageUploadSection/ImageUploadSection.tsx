@@ -93,17 +93,17 @@ function ImageUploadSection({ nextControlsEl }: { nextControlsEl: HTMLDivElement
 
   const validate = useFormValidation(formRef as FormRef, IMAGE_UPLOAD_FORM)
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     const form = e.currentTarget
-    const formData = packFilesInFormData({ form })
+    const formData = await packFilesInFormData({ form })
 
     dispatch(fetchImageUpload(formData))
   }
 
-  function handleFillData() {
-    packFilesInFormData({ form: null, isAutocomplete: true, dispatch })
+  async function handleFillData() {
+    await packFilesInFormData({ form: null, isAutocomplete: true, dispatch })
     dispatch(setAutoDataComplete({ formName: IMAGE_UPLOAD_FORM, status: true }))
   }
 
