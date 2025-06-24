@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import Notification from '../ui/Notification/Notification'
 
 const Main = styled('main')`
-  min-height: 100vh;
   max-width: 904px;
   width: 100%;
   display: flex;

@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 import { runningTest } from '../../../redux/reducers/slices/components/test/test.slice'
 
 const Section = styled('section')`
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
  :root {
     display: flex;
     justify-content: center;
+    height: 100%;
     font-size: 10px;
   }
 
@@ -19,6 +20,11 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     max-width: 1200px;
     width: 100%;
+  }
+
+  #root {
+    height: 100%;
+    display: flex;
   }
 
   p {
