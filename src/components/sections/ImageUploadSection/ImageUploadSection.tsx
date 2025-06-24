@@ -5,8 +5,7 @@ import Button from '../../ui/Button/Button'
 import useFormValidation from '../../../hooks/useFormValidation'
 import ArrowRightIcon from '../../../assets/icons/arrow-2-right.svg?react'
 import { useRef, type FormEvent } from 'react'
-import { useSelector } from 'react-redux'
-import { useAppDispatch, useAppSelector, type RootState } from '../../../redux/store'
+import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { createPortal } from 'react-dom'
 import { fetchImageUpload } from '../../../redux/reducers/thunks/imageUpload.thunk'
 import { IMAGE_UPLOAD_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
@@ -89,7 +88,7 @@ function ImageUploadSection({ nextControlsEl }: { nextControlsEl: HTMLDivElement
   const dispatch = useAppDispatch()
 
   const formRef = useRef<HTMLFormElement>(null)
-  const { currentStep, currentNameForm } = useSelector((state: RootState) => state.form)
+  const { currentStep, currentNameForm } = useAppSelector((state) => state.form)
   const { loading, valid } = useAppSelector((state) => state.ui)
 
   const validate = useFormValidation(formRef as FormRef, IMAGE_UPLOAD_FORM)

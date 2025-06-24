@@ -1,15 +1,15 @@
 import { Slide, Snackbar, type SlideProps } from '@mui/material'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useTheme } from 'styled-components'
 import { closeNotification } from '../../../redux/reducers/slices/components/notification/notification.slice'
-import type { RootState } from '../../../redux/store'
+import { useAppSelector } from '../../../redux/store'
 
 function SlideTransition(props: SlideProps) {
   return <Slide {...props} direction='down' />
 }
 
 function Notification() {
-  const { isOpen, message, status } = useSelector((state: RootState) => state.notification)
+  const { isOpen, message, status } = useAppSelector((state) => state.notification)
 
   const dispatch = useDispatch()
 

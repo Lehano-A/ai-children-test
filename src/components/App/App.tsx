@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux'
 import StartTestSection from '../sections/StartTestSection/StartTestSection'
-import type { RootState } from '../../redux/store'
+import { useAppSelector } from '../../redux/store'
 import Test from '../Test/Test'
 import styled from 'styled-components'
 import Notification from '../ui/Notification/Notification'
@@ -13,7 +12,7 @@ const Main = styled('main')`
 `
 
 function App() {
-  const isRunningTest = useSelector((state: RootState) => state.test.isRunningTest)
+  const isRunningTest = useAppSelector((state) => state.test.isRunningTest)
 
   return (
     <>
