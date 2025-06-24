@@ -7,12 +7,17 @@ import ButtonPrev from '../ui/ButtonPrev/ButtonPrev'
 import SurveySection from '../sections/SurveySection/SurveySection'
 import ResultSection from '../sections/ResultSection/ResultSection'
 
+const CommonBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+
 const TestBox = styled('div')`
+  position: relative;
   width: 100%;
   border-radius: ${({ theme }) => theme.ui.radius['20']};
-  overflow: hidden;
   padding: 0 64px 32px;
-  position: relative;
 
   @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     padding: 0 16px;
@@ -106,31 +111,32 @@ function Test() {
     }
   }, [])
   return (
-    <TestBox>
+    <CommonBox>
       <StepProgress totalParts={figcaptions.length} step={currentStep} />
+      <TestBox>
+        <Wrapper>
+          {currentStep >= 1 && currentStep < 3 && (
+            <ImageUploadSection nextControlsEl={nextControlsEl} />
+          )}
 
-      <Wrapper>
-        {currentStep >= 1 && currentStep < 3 && (
-          <ImageUploadSection nextControlsEl={nextControlsEl} />
-        )}
+          {((currentStep >= 2 && currentStep < 3) || maxReachedStep === 2) && (
+            <SurveySection nextControlsEl={nextControlsEl} />
+          )}
 
-        {((currentStep >= 2 && currentStep < 3) || maxReachedStep === 2) && (
-          <SurveySection nextControlsEl={nextControlsEl} />
-        )}
+          {currentStep === 3 && <ResultSection nextControlsEl={nextControlsEl} />}
 
-        {currentStep === 3 && <ResultSection nextControlsEl={nextControlsEl} />}
+          <StepsControlsBox>
+            <Step>
+              Шаг {currentStep}/{totalSteps}
+            </Step>
 
-        <StepsControlsBox>
-          <Step>
-            Шаг {currentStep}/{totalSteps}
-          </Step>
-
-          <ControlsBox id='controlsBox' ref={nextControlsRef}>
-            {currentStep === 2 && <ButtonPrev />}
-          </ControlsBox>
-        </StepsControlsBox>
-      </Wrapper>
-    </TestBox>
+            <ControlsBox id='controlsBox' ref={nextControlsRef}>
+              {currentStep === 2 && <ButtonPrev />}
+            </ControlsBox>
+          </StepsControlsBox>
+        </Wrapper>
+      </TestBox>
+    </CommonBox>
   )
 }
 

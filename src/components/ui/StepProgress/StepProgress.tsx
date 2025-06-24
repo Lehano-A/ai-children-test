@@ -10,11 +10,15 @@ interface ProgressProps {
 }
 
 const StepProgressBox = styled('div')<ProgressBoxProps>`
+  flex-shrink: 0;
   display: grid;
   grid-template-columns: ${({ $totalParts }) => `repeat(${$totalParts}, 1fr)`};
   height: 16px;
-  margin: 0 -64px;
+  width: 100%;
   background-color: ${({ theme }) => theme.palette.blue['50']};
+  overflow: hidden;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 `
 
 const Part = styled('div')<{ $needHighlight: boolean }>`
