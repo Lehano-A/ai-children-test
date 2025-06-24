@@ -20,9 +20,7 @@ import type { FormRef } from '../../../redux/reducers/slices/form/form.types'
 import ButtonFillData from '../../ui/ButtonFillData/ButtonFillData'
 
 const CommonBox = styled('div')<{ $currentStep: number }>`
-  position: ${({ $currentStep }) => ($currentStep === 2 ? 'static' : 'absolute')};
-  visibility: ${({ $currentStep }) => ($currentStep === 2 ? 'visible' : 'hidden')};
-  z-index: ${({ $currentStep }) => ($currentStep === 2 ? 0 : -1)};
+  display: ${({ $currentStep }) => ($currentStep === 2 ? 'block' : 'none')};
 `
 
 const Form = styled('form')`
@@ -43,34 +41,6 @@ const Form = styled('form')`
     margin-bottom: 64px;
   }
 `
-
-// const ButtonFillData = styled('button')`
-//   position: fixed;
-//   z-index: 100000;
-//   bottom: 20px;
-//   right: 20px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 35px;
-//   height: 35px;
-//   border-radius: 50%;
-//   border: none;
-//   background-color: ${({ theme }) => theme.palette.blue['100']};
-//   padding: 8px;
-//   cursor: pointer;
-//   transition: background-color 0.15s ease;
-
-//   &:hover {
-//     background-color: ${({ theme }) => theme.palette.blue['110']};
-//   }
-
-//   & svg {
-//     width: 100%;
-//     height: 100%;
-//     fill: ${({ theme }) => theme.palette.surface1};
-//   }
-// `
 
 const ChaptersBox = styled('div')`
   display: flex;
@@ -116,7 +86,7 @@ const SurveySection = React.memo(function SurveySection({
   }
 
   return (
-    <CommonBox $currentStep={currentStep}>
+    <CommonBox id='survey' $currentStep={currentStep}>
       <ButtonFillData handleFill={handleFillData} />
 
       <Form ref={formRef} id={SURVEY_FORM} onSubmit={handleSubmit} onInput={validate}>
