@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import ParentInstructions from './ParentInstructions/ParentInstructions'
 import React, { useRef } from 'react'
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome'
 import EmotionalSphere from './Chapters/EmotionalSphere'
 import SocialInteraction from './Chapters/SocialInteraction'
 import SelfRegulation from './Chapters/SelfRegulation'
@@ -18,6 +17,7 @@ import { fetchSurvey } from '../../../redux/reducers/thunks/survey.thunk'
 import { createPortal } from 'react-dom'
 import { SURVEY_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
 import type { FormRef } from '../../../redux/reducers/slices/form/form.types'
+import ButtonFillData from '../../ui/ButtonFillData/ButtonFillData'
 
 const CommonBox = styled('div')<{ $currentStep: number }>`
   position: ${({ $currentStep }) => ($currentStep === 2 ? 'static' : 'absolute')};
@@ -44,33 +44,33 @@ const Form = styled('form')`
   }
 `
 
-const ButtonFillData = styled('button')`
-  position: fixed;
-  z-index: 100000;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: none;
-  background-color: ${({ theme }) => theme.palette.blue['100']};
-  padding: 8px;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
+// const ButtonFillData = styled('button')`
+//   position: fixed;
+//   z-index: 100000;
+//   bottom: 20px;
+//   right: 20px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 35px;
+//   height: 35px;
+//   border-radius: 50%;
+//   border: none;
+//   background-color: ${({ theme }) => theme.palette.blue['100']};
+//   padding: 8px;
+//   cursor: pointer;
+//   transition: background-color 0.15s ease;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.palette.blue['110']};
-  }
+//   &:hover {
+//     background-color: ${({ theme }) => theme.palette.blue['110']};
+//   }
 
-  & svg {
-    width: 100%;
-    height: 100%;
-    fill: ${({ theme }) => theme.palette.surface1};
-  }
-`
+//   & svg {
+//     width: 100%;
+//     height: 100%;
+//     fill: ${({ theme }) => theme.palette.surface1};
+//   }
+// `
 
 const ChaptersBox = styled('div')`
   display: flex;
@@ -117,9 +117,7 @@ const SurveySection = React.memo(function SurveySection({
 
   return (
     <CommonBox $currentStep={currentStep}>
-      <ButtonFillData onClick={handleFillData}>
-        <AutoAwesomeIcon />
-      </ButtonFillData>
+      <ButtonFillData handleFill={handleFillData} />
 
       <Form ref={formRef} id={SURVEY_FORM} onSubmit={handleSubmit} onInput={validate}>
         <IntroInfo />

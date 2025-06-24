@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import UploadIcon from '../../../../assets/icons/upload.svg?react'
-import { useSelector } from 'react-redux'
-import { useAppDispatch, type RootState } from '../../../../redux/store'
+import { useAppDispatch, useAppSelector } from '../../../../redux/store'
 import { saveImage } from '../../../../redux/reducers/slices/form/form.slice'
+import { IMAGE_UPLOAD_FORM } from '../../../../redux/reducers/slices/ui/ui.constants'
 
 const Figure = styled('figure')`
   display: flex;
@@ -92,7 +92,8 @@ interface ImageUploadWithCaptionProps {
 
 function ImageUploadWithCaption({ figcaption, id }: ImageUploadWithCaptionProps) {
   const dispatch = useAppDispatch()
-  const { uploadedImages } = useSelector((state: RootState) => state.form)
+  const { uploadedImages } = useAppSelector((state) => state.form)
+  const { autoDataComplete } = useAppSelector((state) => state.ui)
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
@@ -122,7 +123,7 @@ function ImageUploadWithCaption({ figcaption, id }: ImageUploadWithCaptionProps)
           accept='image/*,.pdf'
           name={`image${id + 1}`}
           onChange={handleFileChange}
-          required
+          required={autoDataComplete[IMAGE_UPLOAD_FORM] ? false : true}
         />
       </UploadArea>
 

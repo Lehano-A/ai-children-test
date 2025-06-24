@@ -6,6 +6,7 @@ type Loading = Record<Forms, boolean> & Record<OtherComponents, boolean>
 type Valid = Record<Forms, boolean>
 
 export interface AutoDataComplete {
+  imageUploadForm: boolean
   surveyForm: boolean
 }
 

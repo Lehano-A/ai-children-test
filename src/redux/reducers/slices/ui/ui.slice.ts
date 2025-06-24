@@ -18,6 +18,7 @@ const initialState: InitialState = {
   },
 
   autoDataComplete: {
+    imageUploadForm: false,
     surveyForm: false,
   },
 
@@ -50,7 +51,7 @@ export const uiSlice = createSlice({
     ) => {
       const { formName, status } = action.payload
       state.autoDataComplete[formName] = status
-      state.valid[formName] = true
+      state.valid[formName] = status
     },
   },
 

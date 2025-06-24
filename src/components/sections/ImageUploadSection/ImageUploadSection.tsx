@@ -12,6 +12,10 @@ import { fetchImageUpload } from '../../../redux/reducers/thunks/imageUpload.thu
 import { IMAGE_UPLOAD_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
 
 import type { FormRef } from '../../../redux/reducers/slices/form/form.types'
+import ButtonFillData from '../../ui/ButtonFillData/ButtonFillData'
+import { setAutoDataComplete } from '../../../redux/reducers/slices/ui/ui.slice'
+
+import { packFilesInFormData } from './packFilesInFormData'
 
 const Form = styled('form')<{ $isVisible: boolean }>`
   width: 100%;
@@ -94,62 +98,58 @@ function ImageUploadSection({ nextControlsEl }: { nextControlsEl: HTMLDivElement
     e.preventDefault()
 
     const form = e.currentTarget
-    const formData = packFilesInFormData(form)
+    const formData = packFilesInFormData({ form })
 
     dispatch(fetchImageUpload(formData))
   }
 
+  function handleFillData() {
+    packFilesInFormData({ form: null, isAutocomplete: true, dispatch })
+    dispatch(setAutoDataComplete({ formName: IMAGE_UPLOAD_FORM, status: true }))
+  }
+
   return (
-    <Form
-      $isVisible={currentStep === 1}
-      ref={formRef}
-      onSubmit={handleSubmit}
-      id={IMAGE_UPLOAD_FORM}
-      onInput={validate}
-    >
-      <Header>
-        <Title>Загрузите фотографии рисунков</Title>
+    <div>
+      <ButtonFillData handleFill={handleFillData} />
 
-        <UploadInstructions>
-          <AttentionIcon />
-          <Text>Допустимые форматы файлов: jpg, jpeg, png, pdf. Размер не более 5 Мб</Text>
-        </UploadInstructions>
-      </Header>
+      <Form
+        $isVisible={currentStep === 1}
+        ref={formRef}
+        onSubmit={handleSubmit}
+        id={IMAGE_UPLOAD_FORM}
+        onInput={validate}
+      >
+        <Header>
+          <Title>Загрузите фотографии рисунков</Title>
 
-      <GroupImagesBox>
-        {figcaptions.map((text, id) => (
-          <ImageUploadWithCaption key={text + id} id={id} figcaption={text} />
-        ))}
-      </GroupImagesBox>
+          <UploadInstructions>
+            <AttentionIcon />
+            <Text>Допустимые форматы файлов: jpg, jpeg, png, pdf. Размер не более 5 Мб</Text>
+          </UploadInstructions>
+        </Header>
 
-      {nextControlsEl &&
-        currentNameForm === IMAGE_UPLOAD_FORM &&
-        createPortal(
-          <Button
-            isLoading={loading[IMAGE_UPLOAD_FORM]}
-            isDisabled={!valid[IMAGE_UPLOAD_FORM] || loading[IMAGE_UPLOAD_FORM]}
-            buttonName='Далее'
-            icon={<ArrowRightIcon />}
-            type='submit'
-            formName={IMAGE_UPLOAD_FORM}
-          />,
-          nextControlsEl,
-        )}
-    </Form>
+        <GroupImagesBox>
+          {figcaptions.map((text, id) => (
+            <ImageUploadWithCaption key={text + id} id={id} figcaption={text} />
+          ))}
+        </GroupImagesBox>
+
+        {nextControlsEl &&
+          currentNameForm === IMAGE_UPLOAD_FORM &&
+          createPortal(
+            <Button
+              isLoading={loading[IMAGE_UPLOAD_FORM]}
+              isDisabled={!valid[IMAGE_UPLOAD_FORM] || loading[IMAGE_UPLOAD_FORM]}
+              buttonName='Далее'
+              icon={<ArrowRightIcon />}
+              type='submit'
+              formName={IMAGE_UPLOAD_FORM}
+            />,
+            nextControlsEl,
+          )}
+      </Form>
+    </div>
   )
-}
-
-function packFilesInFormData(form: HTMLFormElement) {
-  const formData = new FormData()
-  const image1 = (form.elements.namedItem('image1') as HTMLInputElement)?.files?.[0]
-  const image2 = (form.elements.namedItem('image2') as HTMLInputElement)?.files?.[0]
-  const image3 = (form.elements.namedItem('image3') as HTMLInputElement)?.files?.[0]
-
-  if (image1) formData.append('files', image1)
-  if (image2) formData.append('files', image2)
-  if (image3) formData.append('files', image3)
-
-  return formData
 }
 
 export default ImageUploadSection
