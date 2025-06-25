@@ -725,6 +725,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
 `,hc="&:has(> :not(:only-child))",QO=ue("div")`
   display: flex;
   gap: 8px;
+  background-color: lime;
 
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     ${hc} {
@@ -736,8 +737,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
 
   @media (${({theme:t})=>t.ui.breakpoints.m}) {
     ${hc} {
-      background-color: lime;
-      // flex-direction: row;
+      flex-direction: row;
     }
 
     ${hc} button {
@@ -747,6 +747,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
 
   @media (${({theme:t})=>t.ui.breakpoints.l}) {
     ${hc} {
+      background-color: lime;
       width: auto;
     }
   }
