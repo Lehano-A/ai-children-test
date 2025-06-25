@@ -382,11 +382,11 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  visibility: ${({$isVisible:t})=>t?"visible":"hidden"};
-  position: ${({$isVisible:t})=>t?"static":"absolute"};
+  // visibility: ${({$isVisible:t})=>t?"visible":"hidden"};
+  // position: ${({$isVisible:t})=>t?"static":"absolute"};
   top: 0;
   left: 0;
-  z-index: ${({$isVisible:t})=>t?"0":"-1"};
+  // z-index: ${({$isVisible:t})=>t?"0":"-1"};
 `,f9=ue("header")`
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     margin-bottom: 24px;
