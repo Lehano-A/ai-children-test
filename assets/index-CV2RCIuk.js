@@ -728,6 +728,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
 
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     ${hc} {
+      background-color: violet;
       flex-direction: column;
       width: 100%;
     }
@@ -736,6 +737,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
   @media (${({theme:t})=>t.ui.breakpoints.m}) {
     ${hc} {
       flex-direction: row;
+      background-color: tomato;
     }
 
     ${hc} button {
