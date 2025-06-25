@@ -702,9 +702,11 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
   width: 100%;
   min-height: 40px;
   gap: 24px;
+  background-color: yellow;
 
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     ${Ob} {
+      background-color: orange;
       flex-direction: column-reverse;
       align-items: start;
     }
