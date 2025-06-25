@@ -725,6 +725,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
 `,hc="&:has(> :not(:only-child))",QO=ue("div")`
   display: flex;
   gap: 8px;
+  background-color: pink;
 
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     ${hc} {
