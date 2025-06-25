@@ -376,16 +376,11 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
     fill: ${({theme:t})=>t.palette.surface1};
   }
 `;function h3({handleFill:t}){return O.jsx(a9,{onClick:t,children:O.jsx(r9,{})})}const i9="/1.jpg",s9="/2.jpg",o9="/3.jpg";async function z2({form:t,isAutocomplete:r=!1,dispatch:e=null}){var l,c;const n=new FormData,s=[];if(r){const h=await l9([i9,s9,o9]);if(s.push(...h),e)for(let m=0;m<h.length;m++)u9(h,m,e)}else if(t)for(let d=1;d<=3;d++){const h=(c=(l=t.elements.namedItem(`image${d}`))==null?void 0:l.files)==null?void 0:c[0];h&&s.push(h)}return s.forEach(d=>n.append("files",d)),n}async function l9(t){return await Promise.all(t.map(async(r,e)=>{const s=await(await fetch(r)).blob();return new File([s],`${e+1}.jpg`,{type:s.type})}))}function u9(t,r,e){const n=t[r],s=new FileReader;s.onloadend=()=>{e(a3({id:r,image:s.result}))},s.readAsDataURL(n)}const c9=ue("form")`
-  display: ${({$isVisible:t})=>t?"flex":"none"};;
+  display: ${({$isVisible:t})=>t?"flex":"none"};
   height: min-content;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  // visibility: ${({$isVisible:t})=>t?"visible":"hidden"};
-  // position: ${({$isVisible:t})=>t?"static":"absolute"};
-  // top: 0;
-  // left: 0;
-  // z-index: ${({$isVisible:t})=>t?"0":"-1"};
 `,f9=ue("header")`
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     margin-bottom: 24px;
@@ -632,7 +627,6 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
   resize: none;
 `,vn=V.memo(function({type:r="text",label:e,height:n="s",name:s}){const[l,c]=R.useState(""),d=v3();function h(m){c(m.target.value)}return O.jsxs(wO,{children:[O.jsx(xO,{htmlFor:d,children:e}),r==="text"&&O.jsx(_O,{$hasValue:!!l,$height:Ab[n],id:d,type:r,onChange:h,name:s,required:!0}),r==="date"&&O.jsx(SO,{id:d,name:s}),r==="textarea"&&O.jsx(CO,{$hasValue:!!l,$height:Ab[n],id:d,onChange:h,name:s,required:!0})]})});function DO(){return O.jsxs(Qs,{title:"Общая информация о ребенке",gap:{chapter:"s",fieldset:"s"},children:[O.jsx(vn,{label:"Имя ребенка",name:"childName"}),O.jsx(vn,{label:"Дата рождения ребенка",name:"childDOB",type:"date"}),O.jsx(_e,{legend:"Пол ребенка",radio:[["Мужской","man"],["Женский","woman"]],name:"childGender"}),O.jsx(vn,{label:"Имя родителя, заполняющего анкету",name:"parentName"})]})}function EO(){return O.jsxs(Qs,{title:"Раздел 5. Общие вопросы",children:[O.jsx(_e,{legend:"Как Вы оцениваете общее эмоциональное состояние вашего ребенка?",name:"emotionalState",radio:[["Отличное","5"],["Хорошее","4"],["Удовлетворительное","3"],["Неудовлетворительное","2"],["Очень плохое","1"]],breakpoints:{s:"column",m:"column",xl:"row"}}),O.jsx(vn,{label:"Есть ли у Вашего ребенка какие-либо особенности развития или поведения, о которых Вы хотели бы сообщить дополнительно?",height:"xxl",type:"textarea",name:"q5_1"}),O.jsx(vn,{label:"Какие, на Ваш взгляд, сильные стороны и таланты есть у Вашего ребенка?",height:"xl",type:"textarea",name:"q5_2"}),O.jsx(vn,{label:"Какие, на Ваш взгляд, области требуют особого внимания и развития у Вашего ребенка?",height:"xxl",type:"textarea",name:"q5_3"}),O.jsx(vn,{label:"Обращались ли Вы ранее к специалистам (психологу, неврологу, логопеду) по поводу развития или поведения Вашего ребенка?",height:"xxl",type:"textarea",name:"q5_4"}),O.jsx(vn,{label:"Какие занятия или игры больше всего увлекают вашего ребёнка?",height:"xxl",type:"textarea",name:"q5_5"}),O.jsx(vn,{label:"Какие навыки (речевые, двигательные, социальные) даются ему легче всего?",height:"xxl",type:"textarea",name:"q5_6"}),O.jsx(vn,{label:"Как ваш ребёнок относится к режиму дня (сон, еда, занятия)?",height:"xxl",type:"textarea",name:"q5_7"}),O.jsx(vn,{label:"Есть ли у него любимые/нелюбимые продукты питания?",height:"xxl",type:"textarea",name:"q5_8"}),O.jsx(vn,{label:"Какие книги, мультфильмы или игры нравятся вашему ребёнку?",height:"xxl",type:"textarea",name:"q5_9"}),O.jsx(vn,{label:"К каким видам творчества ребенок проявляет интерес (рисование, лепка, музыка и т. д.)?",height:"xxl",type:"textarea",name:"q5_10"})]})}const kO=t=>R.createElement("svg",{width:"1em",height:"1em",viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...t},R.createElement("path",{d:"M13.5 16L17.5 12L13.5 8M6.5 17L11.5 12L6.5 7",strokeWidth:1.5,strokeLinecap:"round",strokeLinejoin:"round"}));function dw(t,r=0){var s;let e=0;const n=(s=t.current)==null?void 0:s.elements[r];if(!(!n||!(n instanceof HTMLElement))&&n){if(TO(n)){const l=n;l.name==="childName"&&(l.value="Алиса Солнышкова"),l.name==="childDOB"&&(l.value="12.01.2005"),l.name==="parentName"&&(l.value="Мария Солнышкова")}else if(MO(n)){const l=n,c=l.elements.length,d=s3(c),h=l.elements[d];h.checked=!0,e=c}else if(AO(n)){const l=n;l.value="Какой-то текст"}dw(t,r+1+e)}}function TO(t){return t.tagName==="INPUT"}function MO(t){return t.tagName==="FIELDSET"}function AO(t){return t.tagName==="TEXTAREA"}const OO=d3(or,t=>Promise.resolve({task_id:t.task_id}),(t,r)=>{f3(r)}),RO=ue("div")`
   display: ${({$isVisible:t})=>t?"block":"none"};
-  width: 100%;
 `,NO=ue("form")`
   display: flex;
   flex-direction: column;
