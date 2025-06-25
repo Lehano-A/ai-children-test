@@ -376,7 +376,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
     fill: ${({theme:t})=>t.palette.surface1};
   }
 `;function h3({handleFill:t}){return O.jsx(a9,{onClick:t,children:O.jsx(r9,{})})}const i9="/1.jpg",s9="/2.jpg",o9="/3.jpg";async function z2({form:t,isAutocomplete:r=!1,dispatch:e=null}){var l,c;const n=new FormData,s=[];if(r){const h=await l9([i9,s9,o9]);if(s.push(...h),e)for(let m=0;m<h.length;m++)u9(h,m,e)}else if(t)for(let d=1;d<=3;d++){const h=(c=(l=t.elements.namedItem(`image${d}`))==null?void 0:l.files)==null?void 0:c[0];h&&s.push(h)}return s.forEach(d=>n.append("files",d)),n}async function l9(t){return await Promise.all(t.map(async(r,e)=>{const s=await(await fetch(r)).blob();return new File([s],`${e+1}.jpg`,{type:s.type})}))}function u9(t,r,e){const n=t[r],s=new FileReader;s.onloadend=()=>{e(a3({id:r,image:s.result}))},s.readAsDataURL(n)}const c9=ue("form")`
-  width: 100%;
+  width: ${({$isVisible:t})=>t?"100":"auto"};;
   display: ${({$isVisible:t})=>t?"flex":"none"};;
   height: min-content;
   flex-direction: column;
