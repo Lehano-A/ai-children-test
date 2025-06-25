@@ -725,11 +725,9 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
 `,hc="&:has(> :not(:only-child))",QO=ue("div")`
   display: flex;
   gap: 8px;
-  background-color: lime;
 
   @media (${({theme:t})=>t.ui.breakpoints.xs}) {
     ${hc} {
-      color: tomato;
       flex-direction: column;
       width: 100%;
     }
