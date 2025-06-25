@@ -712,6 +712,8 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
 
   @media (${({theme:t})=>t.ui.breakpoints.m}) {
     ${Ob} {
+      background-color: blue;
+
       flex-direction: row;
       align-items: end;
     }
@@ -737,7 +739,7 @@ export default theme;`}function cm(t={},...r){const{breakpoints:e,mixins:n={},sp
 
   @media (${({theme:t})=>t.ui.breakpoints.m}) {
     ${hc} {
-      flex-direction: row;
+      flex-direction: row-reverse;
       background-color: tomato;
     }
 
