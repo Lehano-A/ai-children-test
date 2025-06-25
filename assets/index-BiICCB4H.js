@@ -709,13 +709,13 @@ export default theme;`}function um(t={},...r){const{breakpoints:e,mixins:n={},sp
       align-items: start;
     }
   }
-
+/*
   @media (${({theme:t})=>t.ui.breakpoints.m}) {
     &:has(#controlsBox > :not(:only-child)) {
       flex-direction: row;
       align-items: end;
     }
-  }
+  }*/
 `,IO=ue("span")`
   white-space: nowrap;
   color: ${({theme:t})=>t.palette.muted};
