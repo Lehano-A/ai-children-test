@@ -69,10 +69,10 @@ function ResultSection({ nextControlsEl }: { nextControlsEl: HTMLDivElement | nu
       )}
 
       {!loading[RESULT_PROCESSING] && dataFromApi && (
-        <>
+        <div id='testResult'>
           <Title>{dataFromApi.title}</Title>
           <Text>{dataFromApi.text}</Text>
-        </>
+        </div>
       )}
 
       {nextControlsEl &&

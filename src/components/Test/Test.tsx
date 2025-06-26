@@ -34,7 +34,23 @@ const TestBox = styled('div')`
 `
 
 const Wrapper = styled('div')`
-  padding: 24px 0 16px;
+  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
+    padding: 24px 0 16px;
+  }
+
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
+    padding: 32px 0 24px;
+  }
+
+  @media (${({ theme }) => theme.ui.breakpoints.l}) {
+    &:has(:not(#testResult)) {
+      padding: 48px 0 32px;
+    }
+
+    &:has(#testResult) {
+      padding: 64px 0 32px;
+    }
+  }
 `
 
 const StepsControlsBox = styled('div')<{ $hasMultipleControls: boolean }>`
