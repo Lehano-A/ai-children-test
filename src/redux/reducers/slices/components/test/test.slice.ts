@@ -23,7 +23,7 @@ const testSlice = createSlice({
     },
 
     setHasMultipleControls: (state, action) => {
-      const { quantityButtons } = action.payload
+      const quantityButtons = action.payload
       state.hasMultipleControls = quantityButtons > 1
     },
   },
