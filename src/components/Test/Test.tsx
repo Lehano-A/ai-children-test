@@ -18,37 +18,22 @@ const TestBox = styled('div')`
   position: relative;
   width: 100%;
   border-radius: ${({ theme }) => theme.ui.radius['20']};
-  padding: 0 64px 32px;
 
   @media (${({ theme }) => theme.ui.breakpoints.xs}) {
-    padding: 0 16px;
+    padding: 24px 16px 16px;
   }
 
   @media (${({ theme }) => theme.ui.breakpoints.m}) {
-    padding: 0 24px;
-  }
-
-  @media (${({ theme }) => theme.ui.breakpoints.l}) {
-    padding: 0 64px;
-  }
-`
-
-const Wrapper = styled('div')`
-  @media (${({ theme }) => theme.ui.breakpoints.xs}) {
-    padding: 24px 0 16px;
-  }
-
-  @media (${({ theme }) => theme.ui.breakpoints.m}) {
-    padding: 32px 0 24px;
+    padding: 32px 24px 24px;
   }
 
   @media (${({ theme }) => theme.ui.breakpoints.l}) {
     &:has(:not(#testResult)) {
-      padding: 48px 0 32px;
+      padding: 48px 64px 32px;
     }
 
     &:has(#testResult) {
-      padding: 64px 0 32px;
+      padding: 64px 64px 32px;
     }
   }
 `
@@ -153,31 +138,29 @@ function Test() {
     <CommonBox>
       <StepProgress totalParts={figcaptions.length} step={currentStep} />
       <TestBox>
-        <Wrapper>
-          {currentStep >= 1 && currentStep < 3 && (
-            <ImageUploadSection nextControlsEl={nextControlsEl} />
-          )}
+        {currentStep >= 1 && currentStep < 3 && (
+          <ImageUploadSection nextControlsEl={nextControlsEl} />
+        )}
 
-          {((currentStep >= 2 && currentStep < 3) || maxReachedStep === 2) && (
-            <SurveySection nextControlsEl={nextControlsEl} />
-          )}
+        {((currentStep >= 2 && currentStep < 3) || maxReachedStep === 2) && (
+          <SurveySection nextControlsEl={nextControlsEl} />
+        )}
 
-          {currentStep === 3 && <ResultSection nextControlsEl={nextControlsEl} />}
+        {currentStep === 3 && <ResultSection nextControlsEl={nextControlsEl} />}
 
-          <StepsControlsBox $hasMultipleControls={hasMultipleControls}>
-            <Step>
-              Шаг {currentStep}/{totalSteps}
-            </Step>
+        <StepsControlsBox $hasMultipleControls={hasMultipleControls}>
+          <Step>
+            Шаг {currentStep}/{totalSteps}
+          </Step>
 
-            <ControlsBox
-              id='controlsBox'
-              ref={nextControlsRef}
-              $hasMultipleControls={hasMultipleControls}
-            >
-              {currentStep === 2 && <ButtonPrev />}
-            </ControlsBox>
-          </StepsControlsBox>
-        </Wrapper>
+          <ControlsBox
+            id='controlsBox'
+            ref={nextControlsRef}
+            $hasMultipleControls={hasMultipleControls}
+          >
+            {currentStep === 2 && <ButtonPrev />}
+          </ControlsBox>
+        </StepsControlsBox>
       </TestBox>
     </CommonBox>
   )
