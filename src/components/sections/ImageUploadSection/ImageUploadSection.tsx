@@ -9,25 +9,17 @@ import { useAppDispatch, useAppSelector } from '../../../redux/store'
 import { createPortal } from 'react-dom'
 import { fetchImageUpload } from '../../../redux/reducers/thunks/imageUpload.thunk'
 import { IMAGE_UPLOAD_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
-
 import type { FormRef } from '../../../redux/reducers/slices/form/form.types'
 import ButtonFillData from '../../ui/ButtonFillData/ButtonFillData'
 import { setAutoDataComplete } from '../../../redux/reducers/slices/ui/ui.slice'
-
 import { packFilesInFormData } from './packFilesInFormData'
 
 const Form = styled('form')<{ $isVisible: boolean }>`
-  width: 100%;
-  display: flex;
+  display: ${({ $isVisible }) => ($isVisible ? 'flex' : 'none')};
   height: min-content;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  visibility: ${({ $isVisible }) => ($isVisible ? 'visible' : 'hidden')};
-  position: ${({ $isVisible }) => ($isVisible ? 'static' : 'absolute')};
-  top: 0;
-  left: 0;
-  z-index: ${({ $isVisible }) => ($isVisible ? '0' : '-1')};
 `
 
 const Header = styled('header')`

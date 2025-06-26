@@ -19,8 +19,8 @@ import { SURVEY_FORM } from '../../../redux/reducers/slices/ui/ui.constants'
 import type { FormRef } from '../../../redux/reducers/slices/form/form.types'
 import ButtonFillData from '../../ui/ButtonFillData/ButtonFillData'
 
-const CommonBox = styled('div')<{ $currentStep: number }>`
-  display: ${({ $currentStep }) => ($currentStep === 2 ? 'block' : 'none')};
+const CommonBox = styled('div')<{ $isVisible: boolean }>`
+  display: ${({ $isVisible }) => ($isVisible ? 'block' : 'none')};
 `
 
 const Form = styled('form')`
@@ -86,7 +86,7 @@ const SurveySection = React.memo(function SurveySection({
   }
 
   return (
-    <CommonBox id='survey' $currentStep={currentStep}>
+    <CommonBox id='survey' $isVisible={currentStep === 2}>
       <ButtonFillData handleFill={handleFillData} />
 
       <Form ref={formRef} id={SURVEY_FORM} onSubmit={handleSubmit} onInput={validate}>

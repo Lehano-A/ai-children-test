@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import StepProgress from '../ui/StepProgress/StepProgress'
-import { useAppSelector } from '../../redux/store'
+import { useAppDispatch, useAppSelector } from '../../redux/store'
 import ImageUploadSection, { figcaptions } from '../sections/ImageUploadSection/ImageUploadSection'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import ButtonPrev from '../ui/ButtonPrev/ButtonPrev'
 import SurveySection from '../sections/SurveySection/SurveySection'
 import ResultSection from '../sections/ResultSection/ResultSection'
+import { setHasMultipleControls } from '../../redux/reducers/slices/components/test/test.slice'
 
 const CommonBox = styled('div')`
   display: flex;
@@ -36,28 +37,31 @@ const Wrapper = styled('div')`
   padding: 24px 0 16px;
 `
 
-const manyControlsChild = '&:has(#controlsBox > :not(:only-child))' // если внутри #controlsBox > одного дочернего элемента
-const StepsControlsBox = styled('div')`
+const StepsControlsBox = styled('div')<{ $hasMultipleControls: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: end;
   width: 100%;
   min-height: 40px;
+  gap: 24px;
 
   @media (${({ theme }) => theme.ui.breakpoints.xs}) {
-    gap: 24px;
-
-    ${manyControlsChild} {
-      flex-direction: column-reverse;
-      align-items: start;
+    ${({ $hasMultipleControls }) =>
+      $hasMultipleControls &&
+      css`
+        flex-direction: column-reverse;
+        align-items: start;
+      `} {
     }
   }
 
   @media (${({ theme }) => theme.ui.breakpoints.m}) {
-    ${manyControlsChild} {
-      flex-direction: row;
-      align-items: end;
-    }
+    ${({ $hasMultipleControls }) =>
+      $hasMultipleControls &&
+      css`
+        flex-direction: row;
+        align-items: end;
+      `}
   }
 `
 
@@ -69,40 +73,51 @@ const Step = styled('span')`
   font-weight: 500;
 `
 
-const manyControls = `&:has(> :not(:only-child))` // если внутри > одного контрола
-const ControlsBox = styled('div')`
+const ControlsBox = styled('div')<{ $hasMultipleControls: boolean }>`
   display: flex;
   gap: 8px;
 
   @media (${({ theme }) => theme.ui.breakpoints.xs}) {
-    ${manyControls} {
-      color: tomato;
-      flex-direction: column;
-      width: 100%;
-    }
+    ${({ $hasMultipleControls }) =>
+      $hasMultipleControls &&
+      css`
+        flex-direction: column;
+        width: 100%;
+      `}
   }
 
   @media (${({ theme }) => theme.ui.breakpoints.m}) {
-    ${manyControls} {
-      flex-direction: row;
-    }
+    ${({ $hasMultipleControls }) =>
+      $hasMultipleControls &&
+      css`
+        flex-direction: row-reverse;
+      `}
 
-    ${manyControls} button {
-      width: 100%;
-    }
+    ${({ $hasMultipleControls }) =>
+      $hasMultipleControls &&
+      css`
+        & button {
+          width: 100%;
+        }
+      `}
   }
 
   @media (${({ theme }) => theme.ui.breakpoints.l}) {
-    ${manyControls} {
-      width: auto;
-    }
+    ${({ $hasMultipleControls }) =>
+      $hasMultipleControls &&
+      css`
+        width: auto;
+      `}
   }
 `
 
 function Test() {
+  const dispatch = useAppDispatch()
+
+  const { hasMultipleControls } = useAppSelector((state) => state.test)
   const { currentStep, totalSteps, maxReachedStep } = useAppSelector((state) => state.form)
 
-  const nextControlsRef = useRef(null)
+  const nextControlsRef = useRef<HTMLDivElement>(null)
   const [nextControlsEl, setNextControlsEl] = useState<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -110,6 +125,14 @@ function Test() {
       setNextControlsEl(nextControlsRef.current)
     }
   }, [])
+
+  useEffect(() => {
+    if (nextControlsRef.current) {
+      const quantityButtons = nextControlsRef.current.children.length
+      dispatch(setHasMultipleControls(quantityButtons))
+    }
+  }, [currentStep])
+
   return (
     <CommonBox>
       <StepProgress totalParts={figcaptions.length} step={currentStep} />
@@ -125,12 +148,16 @@ function Test() {
 
           {currentStep === 3 && <ResultSection nextControlsEl={nextControlsEl} />}
 
-          <StepsControlsBox>
+          <StepsControlsBox $hasMultipleControls={hasMultipleControls}>
             <Step>
               Шаг {currentStep}/{totalSteps}
             </Step>
 
-            <ControlsBox id='controlsBox' ref={nextControlsRef}>
+            <ControlsBox
+              id='controlsBox'
+              ref={nextControlsRef}
+              $hasMultipleControls={hasMultipleControls}
+            >
               {currentStep === 2 && <ButtonPrev />}
             </ControlsBox>
           </StepsControlsBox>
