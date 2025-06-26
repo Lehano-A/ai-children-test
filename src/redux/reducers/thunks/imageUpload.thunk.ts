@@ -2,7 +2,7 @@ import { IMAGE_UPLOAD_FORM } from '../slices/ui/ui.constants'
 import { commonSuccessActions } from '../shared/submitHandlers'
 import { setTaskId } from '../slices/form/form.slice'
 
-import { createComponentThunk } from './shared/createComponentThunk'
+import { createComponentThunk } from './shared/createComponent.thunk'
 
 interface ImageUploadResponse {
   task_id: string
