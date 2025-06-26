@@ -23,7 +23,7 @@ const UploadArea = styled('div')`
     height: 64px;
   }
 
-  @media (min-width: 768px) {
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
     width: 216px;
     height: 161px;
   }
@@ -38,26 +38,33 @@ const UploadIconBox = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px;
   cursor: pointer;
   background-color: ${({ theme }) => theme.palette.blue['50']};
   border-radius: ${({ theme }) => theme.ui.radius['8']};
   pointer-events: none;
 
+  & svg {
+    stroke: ${({ theme }) => theme.palette.default};
+  }
+
   @media (${({ theme }) => theme.ui.breakpoints.xs}) {
     width: 32px;
     height: 32px;
+
+    & svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 
-  @media (min-width: 768px) {
+  @media (${({ theme }) => theme.ui.breakpoints.m}) {
     width: 64px;
     height: 64px;
-  }
 
-  & svg {
-    width: 100%;
-    height: 100%;
-    stroke: ${({ theme }) => theme.palette.default};
+    & svg {
+      width: 36px;
+      height: 36px;
+    }
   }
 `
 
