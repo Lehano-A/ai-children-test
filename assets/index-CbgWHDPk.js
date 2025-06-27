@@ -364,8 +364,8 @@ export default theme;`}function um(t={},...r){const{breakpoints:e,mixins:n={},sp
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
   background-color: ${({theme:t})=>t.palette.blue[100]};
